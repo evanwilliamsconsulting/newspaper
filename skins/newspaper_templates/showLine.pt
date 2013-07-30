@@ -1,0 +1,1 @@
+<div tal:replace="content solo">the headline</div>

@@ -1,0 +1,3 @@
+	<metal:test2 tal:repeat="issue here/the_issues">
+	     <metal:test tal:content="issue/id">issue</metal:test>
+	</metal:test2>

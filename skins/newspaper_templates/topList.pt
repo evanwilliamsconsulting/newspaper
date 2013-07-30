@@ -1,0 +1,6 @@
+<div tal:define="container context/theId;linky context/theLinky">
+	<div tal:content="container">Title</div>
+	<br/>
+	<!-- div><a tal:attributes="href linky" tal:content="container/show">The Link</a></div -->
+	<div>Got It</div>
+</div>

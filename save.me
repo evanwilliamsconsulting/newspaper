@@ -1,0 +1,23 @@
+    def callPDFPDTBySameName(self,c,x,y,REQUEST,parent,top,pagenumber):
+	    """
+	    Test
+	    """
+	    showLink = self.getShowLink()
+	    obj = self.getContainers()
+	    ll = self.getLeft()
+            tt = self.getTop()
+	    offset = tt
+	    for item in obj:
+		item.callPDFPDTBySameName(c,ll,offset,REQUEST,item,top,pagenumber)
+	    if showLink:
+	        textobject=c.beginText()
+	    	textobject.setFont("Times-Roman",11)
+	    	textobject.setTextOrigin(ll,1155-tt)
+	    	link = self.getId()
+	    	parent = self.aq_inner.aq_parent
+	    	prevlink = parent.getId()
+	    	issuelink = parent.getIssueUrl()
+	    	totallink = issuelink + '/'+link + '/'
+	    	textobject.textLine(totallink)
+	    	c.drawText(textobject)
+	    return (x,y)

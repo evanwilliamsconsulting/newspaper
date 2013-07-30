@@ -1,0 +1,37 @@
+<metal:page define-macro="show">
+<metal:block define-slot="show-slot"/>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/nhp_template/macros/master"
+      i18n:domain="plone">
+
+<body>
+
+<div metal:fill-slot="pages">
+</div>
+
+<div metal:fill-slot="nhp">
+
+    <h1 class="documentFirstHeading" i18n:translate="heading_welcome_to">Welcome to
+        <span i18n:name="sitename" tal:omit-tag="" tal:content="context/Title">Portal title</span>
+    </h1>
+
+    <div class="documentDescription" tal:content="context/description">
+        Portal description
+    </div>
+
+    <div metal:define-slot="content">
+    </div>
+
+    <div tal:repeat="ferf context/listWidgets" tal:attributes="style string:left:${ferf/llbird}px;;top:${ferf/ttbird}px;;position:absolute;;">
+        <div tal:content="structure ferf/show">the widget</div>
+    </div>
+
+</div>
+
+</body>
+</html>
+</metal:page>

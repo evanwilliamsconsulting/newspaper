@@ -1,0 +1,23 @@
+1)
+
+Blocks can contain Containers.
+
+Blocks can reference a Container elsewhere.
+
+A Container can act like a Block.
+
+similarly,
+
+2)
+
+Containers can contain Wordage via the agency of RichColumns.  Very often a Container that contains Wordage in one, two, or three or more RichColumns will contain a Headline across the top. But,
+
+A Wordage can act like a Container, and
+
+A Container can Contain a Wordage which acts like a Rich Column.
+
+Let's do one thing at a time 1) above; then we will follow through with 2) and more having gained some familiarity with building Schemata that are useful for allowing this chunkwise activity to occur and representing basic functionality using Interfaces.
+
+PROMOTION:
+
+If a Block does contain a Container, the Container obtains the Block's Blockish characteristics in the standard Zopish way via acquisition.  If a Block contains more than one Container and the Containers have their own Blockish settings then what happens is up to the algorithm.  The Containers may be promoted into the Block as one large Container or we might render one after another (which is easier) depending upon the settings in the Block.
