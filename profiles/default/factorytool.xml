@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<object name="portal_factory" meta_type="Plone Factory Tool">
+ <factorytypes>
+  <type portal_type="Container"/>
+  <type portal_type="BookContainer"/>
+  <type portal_type="Correspondant"/>
+  <type portal_type="Users"/>
+  <type portal_type="Location"/>
+  <type portal_type="Broadsheet"/>
+  <type portal_type="Column"/>
+  <type portal_type="Issue"/>
+  <type portal_type="Press"/>
+  <type portal_type="Pix"/>
+  <type portal_type="RichText"/>
+  <type portal_type="Content"/>
+  <type portal_type="Article"/>
+  <type portal_type="Graphic"/>
+  <type portal_type="Line"/>
+  <type portal_type="Block"/>
+  <type portal_type="Webpage"/>
+  <type portal_type="Widget"/>
+ </factorytypes>
+</object>

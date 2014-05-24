@@ -1,0 +1,1 @@
+from Products.Newspaper.PDFPageTemplate import PDFPageTemplate

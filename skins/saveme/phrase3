@@ -1,0 +1,3 @@
+    <div tal:define="ferf2 here/getLine"
+	    tal:content="structure ferf2">
+    </div>

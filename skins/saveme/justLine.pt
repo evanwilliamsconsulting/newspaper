@@ -1,0 +1,4 @@
+        <div tal:define="ferf2 here/getLine"
+		tal:attributes="style string:text-align:justify;; width:${here/getColumnWidth}"
+	    tal:content="structure ferf2">
+        </div>

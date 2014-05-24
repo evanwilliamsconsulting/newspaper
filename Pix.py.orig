@@ -1,0 +1,350 @@
+# -*- coding: utf-8 -*-
+#
+# File: Pix.py
+#
+# Copyright (c) 2011 by unknown <unknown>
+# Generator: ArchGenXML Version 2.6
+#            http://plone.org/products/archgenxml
+#
+# GNU General Public License (GPL)
+#
+
+__author__ = """unknown <unknown>"""
+__docformat__ = 'plaintext'
+
+from AccessControl import ClassSecurityInfo
+from Products.Archetypes.atapi import *
+from zope.interface import implements
+import interfaces
+import reportlab.pdfgen.canvas
+from reportlab.lib import colors
+from reportlab.lib.units import inch
+from reportlab.lib.utils import ImageReader
+import string, cStringIO
+from PIL import *
+
+from reportlab.pdfgen import canvas
+from reportlab.lib import colors
+from reportlab.lib.units import inch
+from reportlab.lib.utils import ImageReader
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.lib.pagesizes import letter
+
+import string 
+from cStringIO import StringIO
+
+from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
+
+from Products.Newspaper.config import *
+
+##code-section module-header #fill in your manual code here
+##/code-section module-header
+
+schema = Schema((
+
+    IntegerField(
+	name='top',
+	widget=IntegerField._properties['widget'](
+	    label='top',
+	    label_msgid='Newspaper_label_top',
+	    i18n_domain='Newspaper',
+	),
+    ),
+    IntegerField(
+	name='left',
+	widget=IntegerField._properties['widget'](
+	    label='left',
+	    label_msgid='Newspaper_label_left',
+	    i18n_domain='Newspaper',
+	),
+    ),
+    IntegerField(
+	name='width',
+	widget=IntegerField._properties['widget'](
+	    label='width',
+	    label_msgid='Newspaper_label_width',
+	    i18n_domain='Newspaper',
+	),
+    ),
+    IntegerField(
+	name='height',
+	widget=IntegerField._properties['widget'](
+	    label='height',
+	    label_msgid='Newspaper_label_height',
+	    i18n_domain='Newspaper',
+	),
+    ),
+    StringField(
+        name='caption',
+        widget=StringField._properties['widget'](
+            label='Caption',
+            label_msgid='Newspaper_label_caption',
+            i18n_domain='Newspaper',
+        ),
+    ),
+    StringField(
+        name='pixclass',
+	default='pixclass',
+        widget=StringField._properties['widget'](
+            label='Pix class',
+            label_msgid='Newspaper_label_pixclass',
+            i18n_domain='Newspaper',
+        ),
+    ),
+    ImageField(
+        name='picture',
+        widget=ImageField._properties['widget'](
+            label='Pix',
+            label_msgid='Newspaper_label_picture',
+            i18n_domain='Newspaper',
+        ),
+        storage=AnnotationStorage(),
+    ),
+    BooleanField(
+	name='glueX',
+        widget=BooleanField._properties['widget'](
+	    label='glueX',
+	    label_msgid='Newspaper_label_glueX',
+	    i18n_domain='Newspaper',
+	),
+    ),
+    BooleanField(
+	name='glueY',
+        widget=BooleanField._properties['widget'](
+	    label='glueY',
+	    label_msgid='Newspaper_label_glueY',
+	    i18n_domain='Newspaper',
+	),
+    ),
+    BooleanField(
+	name='offsetX',
+        widget=BooleanField._properties['widget'](
+	    label='offsetX',
+	    label_msgid='Newspaper_label_offsetX',
+	    i18n_domain='Newspaper',
+	),
+    ),
+    BooleanField(
+	name='resetY',
+        widget=BooleanField._properties['widget'](
+	    label='resetY',
+	    label_msgid='Newspaper_label_resetY',
+	    i18n_domain='Newspaper',
+	),
+    ),
+    BooleanField(
+	name='topMargin',
+	widget=BooleanField._properties['widget'](
+		label='topMargin',
+		label_msgid='Newspaper_label_topMargin',
+		i18n_domain='Newspaper',
+	),
+    ),
+),
+)
+
+##code-section after-local-schema #fill in your manual code here
+##/code-section after-local-schema
+
+Pix_schema = BaseSchema.copy() + \
+    schema.copy()
+
+##code-section after-schema #fill in your manual code here
+##/code-section after-schema
+
+class Pix(BaseContent, BrowserDefaultMixin):
+    """
+    """
+    security = ClassSecurityInfo()
+
+    implements(interfaces.IPix)
+
+    meta_type = 'Pix'
+    _at_rename_after_creation = True
+
+    schema = Pix_schema
+
+    ##code-section class-header #fill in your manual code here
+    ##/code-section class-header
+
+    # Methods
+    def returnPix(self):
+	    """
+	    Test
+	    """
+	    theImage = self.getId()
+	    theDiv = "<div id='"
+            theDiv += theImage
+	    theClass = self.getPixclass()
+            theDiv += "' class='"
+	    theDiv += theClass
+	    theDiv += "' style='margin:10px;'"
+            theDiv += ">"
+	    theTag = "<img width='"+str(self.getWidth())+"' height='"+str(self.getHeight())+"' src='"+self.absolute_url()+"/picture'/>"
+	    theDiv += theTag
+	    theDiv += "</div>"
+	    return theDiv
+
+    def web(self):
+	    """
+	    Test
+	    """
+	    theImage = self.getId()
+	    theDiv = "<div id='"
+            theDiv += theImage
+	    theClass = self.getPixclass()
+            theDiv += "' class='"
+	    theDiv += theClass
+	    theDiv += "' style='margin:10px;'"
+            theDiv += ">"
+	    theSource = self.absolute_url()
+	    nhp = theSource.index('nhp')
+	    theUrl = "http://"
+	    nhplen = len(theSource)
+	    #nhp += 4
+	    nhplen -= nhp
+	    theLast = theSource[nhp:]
+	    theUrl += theLast
+	    theTag = "<img width='"+str(self.getWidth())+"' height='"+str(self.getHeight())+"' src='"+theUrl+"/picture'/>"
+	    theDiv += theTag
+	    theDiv += "</div>"
+	    return theDiv
+        
+
+    def callPDTBySameName(self,REQUEST,parent,top,left,width,height,start,end):
+	    """
+	    Test
+	    """
+	    theImage = self.getId()
+	    theDiv = "<div id='"
+            theDiv += theImage
+            theDiv += "' class='pix' style='margin-left:30px;position:absolute;top:"
+	    theDiv += str(int(top)+self.getTop())
+	    theDiv += "px;left:"
+	    theDiv += str(left)
+	    theDiv += "px;'"
+            #theDiv += "style='border-color:blue;border-width:2px;border-style:solid;top:"
+            left = self.getLeft()
+	    top = self.getTop()
+            width = self.getWidth()
+            height = self.getHeight()
+            theDiv += ">"
+	    theTag = "<img width='"+str(self.getWidth())+"' height='"+str(self.getHeight())+"' src='"+self.absolute_url()+"/picture'/>"
+	    theDiv += start
+	    theDiv += theTag
+	    theDiv += "</div>"
+	    left += width
+	    return (theDiv,top,left,width,height)
+
+    def callPDFPDTBySameName(self,c,x,y,REQUEST,parent,top,pagenumber):
+	    """
+	    Test
+	    """
+	    y += 10
+            print 'here'
+            print self.Title()
+    	    #skin = self.portal_skins.newspaper_templates
+	    #containercontainer = skin[self.Title()]
+	    #result=containercontainer.continuePDF(c,x,y,REQUEST,parent,pagenumber)
+	    #return (result[0],result[1])
+	    glueX = self.getGlueX()
+	    glueY = self.getGlueY()
+	    yorig = y
+	    xorig = x
+	    theImage=self.getPicture()
+	    theImageData = theImage
+	    theImageData = str(theImageData)
+	    #theImageReader = ImageReader(cStringIO.StringIO(theImage))
+	    #(width,height) = theImageReader.getSize()
+            parent = self.aq_inner.aq_parent
+            width = self.getWidth()
+            height = self.getHeight()
+	    if self.getTopMargin():
+		y+=15
+	    c.drawImage(ImageReader(theImage),x,y,width,height,anchor='ne')
+	    caption = self.getCaption()
+	    if caption is not None:
+	        textobject = c.beginText()
+		h = self.getHeight()
+		if h is None:
+			h = 400
+	        textobject.setTextOrigin(x,y+h+30)
+	        fontsize = 11
+	        textobject.setFont("Times-Roman", fontsize)
+	        textobject.textLine(caption)
+	        c.drawText(textobject)
+	    resetY = self.getResetY()
+	    if resetY:
+	    	returny = h + 50
+	    else:
+		returny = y + h - 100
+	    offsetX = self.getOffsetX()
+            if offsetX:
+	        returnx = x + int(float(self.getWidth())*1.1) 
+            else:
+                returnx = xorig 
+	    return (returnx,returny)
+
+    def getSkinName(self):
+	   """
+           TEST
+           """
+           return "showPix"
+
+    def pdf(self,REQUEST): 
+            """
+   	    Test
+            """
+            skin = self.portal_skins.invoicing_templates
+            showTemplate=skin.showIssue
+	    output = StringIO()
+	    c = canvas.Canvas(output,pagesize=letter,bottomup=0)
+	    x=35
+	    y=50
+	    theImage=self.getPicture()
+	    theImageData = theImage.data
+	    theImageData = str(theImageData)
+	    theImageReader = ImageReader(cStringIO.StringIO(theImageData))
+	    (width,height) = theImageReader.getSize()
+            parent = self.aq_inner.aq_parent
+            width = self.getWidth()
+            height = self.getHeight()
+	    if self.getTopMargin():
+		y+=15
+	    c.drawImage(theImageReader,x,y,width,height,anchor='ne')
+	    caption = self.getCaption()
+	    pdfmetrics.registerFont(TTFont('FilosBold','FilosBol.ttf'))
+	    pdfmetrics.registerFont(TTFont('FilosReg','FilosReg.ttf'))
+	    if caption is not None:
+	        textobject = c.beginText()
+		h = self.getHeight()
+		if h is None:
+			h = 400
+	        textobject.setTextOrigin(x,y+h+30)
+	        fontsize = 14
+	        textobject.setFont("FilosReg", fontsize)
+	        textobject.textLine(caption)
+	        c.drawText(textobject)
+	    c.showPage()
+	    c.save()
+	    result = output.getvalue()
+	    output.close()
+	    response = REQUEST.RESPONSE
+            response.setHeader('Content-type','application/pdf')
+	    return result 
+
+    def publish(self,REQUEST):
+            """
+            Publish
+            """
+	    skin = self.portal_skins.newspaper_templates
+	    showTemplate=skin.publishPix
+	    return showTemplate()
+
+registerType(Pix, PROJECTNAME)
+# end of class Image
+
+##code-section module-footer #fill in your manual code here
+##/code-section module-footer
+

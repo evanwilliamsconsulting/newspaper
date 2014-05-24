@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<object name="Article"
+        meta_type="Factory-based Type Information with dynamic views"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        i18n:domain="plone">
+   
+ <property name="title" i18n:translate="">Article</property>
+ <property name="description" i18n:translate=""></property>
+ <property name="content_icon">Article.gif</property>
+ <property name="content_meta_type">Article</property>
+ <property name="product">Newspaper</property>
+ <property name="factory">addArticle</property>
+ <property name="immediate_view">base_view</property>
+ <property name="global_allow">True</property>
+ <property name="filter_content_types">False</property>
+ <property name="allowed_content_types">
+ </property>
+ <property name="allow_discussion">False</property>
+ <property name="default_view">base_view</property>
+ <property name="view_methods">
+  <element value="base_view"/>
+ </property>
+ <property name="default_view_fallback">False</property>
+ <alias from="(Default)" to="(dynamic view)"/>
+ <alias from="index.html" to="(dynamic view)"/>
+ <alias from="view" to="(selected layout)"/>
+ <alias from="edit" to="base_edit"/>
+ <action title="View" 
+         action_id="view"
+         category="object" 
+         condition_expr=""
+         url_expr="string:${object_url}/view" 
+         visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Edit" 
+         action_id="edit"
+         category="object" 
+         condition_expr="not:object/@@plone_lock_info/is_locked_for_current_user"
+         url_expr="string:${object_url}/edit" 
+         visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action type="Apply"
+	 title="Apply"
+	 action_id="apply"
+	 category="object"
+	 condition_expr="not:object/@@plone_lock_info/is_locked_for_current_user"
+	 url_expr="string:${object_url}/applyArticleToIssue"
+	 visible="True">
+	 <permission value="Apply Action"/>
+ </action>
+ <action type="Show"
+	 title="Show"
+	 action_id="show"
+	 category="object"
+	 condition_expr="not:object/@@plone_lock_info/is_locked_for_current_user"
+	 url_expr="string:${object_url}/showLines"
+	 visible="True">
+	 <permission value="Show Action"/>
+ </action>
+ <action type="PDF"
+	 title="PDF Preview"
+	 action_id="pdf"
+	 category="object"
+	 condition_expr="not:object/@@plone_lock_info/is_locked_for_current_user"
+	 url_expr="string:${object_url}/pdf"
+	 visible="True">
+	 <permission value="View"/>
+ </action>
+ <action type="Publish"
+	 title="Publish"
+	 action_id="publish"
+	 category="object"
+	 condition_expr="not:object/@@plone_lock_info/is_locked_for_current_user"
+	 url_expr="string:${object_url}/publish"
+	 visible="True">
+	 <permission value="View"/>
+ </action>
+</object>

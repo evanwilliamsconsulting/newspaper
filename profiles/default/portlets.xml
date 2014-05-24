@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!-- This file is used to register new types of portlets. It can also
+     be used to register completely new column types. See CMFPlone's version
+     of this file for more information.
+  -->
+<portlets>
+  <portletmanager 
+        name="nhptheme.topportlets"
+        type="Products.nhptheme.browser.interfaces.INHPTheme"
+        />
+ <assignment name="topportlets" category="context" key="/" manager="nhptheme.topportlets" type="plone.portlet.static.Static" visible="True">
+   <property name="text"><![CDATA[<p>This is additional portlets manager area reserved for portlets.
+You can add any type of portlet instead of this one.</p>]]></property>
+   <property name="more_url">http://skins.quintagroup.com/</property>                                                                                              
+   <property name="omit_border">False</property>                                                                                                             
+   <property name="header">DEMO STATIC PORTLET</property>                                                                                                            
+
+ <portlet>
+   addview="portlets.TopImage"
+   title="Top Recent items"
+   description="A portlet which can render a listing of topimage changed items."
+   i18n:attributes="title title_topimage_portlet;
+                    description description_topimage_portlet">
+   <for interface="plone.app.portlets.interfaces.IColumn" />
+   <for interface="plone.app.portlets.interfaces.IDashboard" />
+ </portlet>
+
+   <property name="footer" />                                                                                                                                
+ </assignment>  
+</portlets>

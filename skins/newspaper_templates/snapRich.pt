@@ -1,0 +1,4 @@
+<div tal:attributes="id here/getId;class here/getRichClass;style here/getRichStyle">
+    <div tal:replace="structure here/getRichContent">SNAPBLOCK</div>
+    <div tal:replace="structure here/getContinued">CONTINUED</div>
+</div>

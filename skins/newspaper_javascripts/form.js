@@ -1,0 +1,17 @@
+$(document).ready(function(){
+   $("#toggleContainer").click(function(event){
+     $("div.container").toggle();
+   });
+   $("#toggleColumn").click(function(event){
+     $("div.column").toggle();
+   });
+   $("#toggleHeadline").click(function(event){
+     $("div.headline").toggle();
+   });
+   $("#togglePix").click(function(event){
+     $("div.pix").toggle();
+   });
+   $("#toggleName").click(function(event){
+     $("div.name").toggle();
+   });
+ });

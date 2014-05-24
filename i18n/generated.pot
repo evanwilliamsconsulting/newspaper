@@ -1,0 +1,123 @@
+# archgenxml generated POT File
+# unknown <unknown>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: Newspaper\n"
+"POT-Creation-Date: Thu Jul  7 13:14:11 2011\n"
+"PO-Revision-Date: Thu Jul  7 13:14:11 2011\n"
+"Last-Translator: unknown <unknown>\n"
+"Language-Team: unknown <unknown>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: latin1 utf-8\n"
+"Domain: Newspaper\n"
+
+#. Default: "Qrimage"
+#: Issue.py
+msgid "Newspaper_label_QRImage"
+msgstr ""
+
+#. Default: "Author"
+#: Content.py
+msgid "Newspaper_label_author"
+msgstr ""
+
+#. Default: "Caption"
+#: Image.py
+msgid "Newspaper_label_caption"
+msgstr ""
+
+#. Default: "Chunksize"
+#: Column.py
+msgid "Newspaper_label_chunkSize"
+msgstr ""
+
+#. Default: "Class"
+#: Container.py
+msgid "Newspaper_label_class"
+msgstr ""
+
+#. Default: "Columnno"
+#: Column.py
+msgid "Newspaper_label_columnNo"
+msgstr ""
+
+#. Default: "Containers"
+#: containerLocation.py
+msgid "Newspaper_label_containers"
+msgstr ""
+
+#. Default: "Dateofpublication"
+#: Issue.py
+msgid "Newspaper_label_dateOfPublication"
+msgstr ""
+
+#. Default: "Divid"
+#: Container.py
+msgid "Newspaper_label_divid"
+msgstr ""
+
+#. Default: "Headingtheme"
+#: Issue.py
+msgid "Newspaper_label_headingTheme"
+msgstr ""
+
+#. Default: "Height"
+#: Location.py
+msgid "Newspaper_label_height"
+msgstr ""
+
+#. Default: "Image"
+#: Image.py
+msgid "Newspaper_label_image"
+msgstr ""
+
+#. Default: "Left"
+#: Location.py
+msgid "Newspaper_label_left"
+msgstr ""
+
+#. Default: "Pageno"
+#: Broadsheet.py
+msgid "Newspaper_label_pageNo"
+msgstr ""
+
+#. Default: "Pagewidth"
+#: Broadsheet.py
+msgid "Newspaper_label_pageWidth"
+msgstr ""
+
+#. Default: "Priceofcopy"
+#: Issue.py
+msgid "Newspaper_label_priceOfCopy"
+msgstr ""
+
+#. Default: "Secondtheme"
+#: Issue.py
+msgid "Newspaper_label_secondTheme"
+msgstr ""
+
+#. Default: "Tagline"
+#: Issue.py
+msgid "Newspaper_label_tagLine"
+msgstr ""
+
+#. Default: "Textitem"
+#: RichText.py
+msgid "Newspaper_label_textItem"
+msgstr ""
+
+#. Default: "Top"
+#: Location.py
+msgid "Newspaper_label_top"
+msgstr ""
+
+#. Default: "Width"
+#: Location.py
+msgid "Newspaper_label_width"
+msgstr ""
+

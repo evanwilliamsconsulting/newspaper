@@ -1,0 +1,35 @@
+    def callPDFPDTBySameName(self,c,x,y,REQUEST,parent,top,pagenumber):
+	    """
+	    Test
+	    """
+	    print "HEADLINE"
+	    glueX = self.getGlueX()
+            glueY = self.getGlueY()
+    	    skin = self.portal_skins.newspaper_templates
+	    theLine = self.getHeadline()
+	    print theLine
+	    textobject = c.beginText()
+            parent = self.aq_inner.aq_parent
+	    xorig = x
+	    yorig = y
+	    if glueX:
+	        x = xorig + int(float(x)/2)
+            else:
+	        x = xorig
+            if glueY:
+		y += 0
+            else:
+                y = yorig
+	    fontsize = self.getFontsize()
+	    textobject.setTextOrigin(x,1185-(y+fontsize))
+	    textobject.setFont("Times-Roman", fontsize)
+	    textobject.textLine(theLine)
+	    c.drawText(textobject)
+	    offsetX = self.getOffsetX()
+            resetY = self.getResetY()
+            if offsetX:
+	        returnx = xorig
+            else:
+                returnx = x 
+            returny = y + int(fontsize / 2)
+	    return (returnx,returny)
