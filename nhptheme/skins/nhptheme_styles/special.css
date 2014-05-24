@@ -1,0 +1,469 @@
+html {
+	background: white;
+}
+body {
+    font: 100% Arial, FreeSans, sans-serif;
+    background: white;
+    color: black;
+    ;margin-left:auto;
+    ;margin-right:auto;
+    margin-top:180px;
+}
+#portal-breadcrumbs
+{
+	position:absolute;
+	margin-left:auto;
+	margin-right:auto;
+	top:100px;
+	left:100px;
+        color: #b6546d;
+	z-index:100;
+}
+.contentViews {
+	margin: 0;
+	padding: 0;
+	left:800px;
+        background: white;
+	color:black;
+	list-style: none;
+	text-decoration:none;
+	width: 800px;
+	border-bottom: 1px solid #ccc;
+	position:absolute;
+	top:210px;
+	z-index:303;
+}
+.contentViews li {
+	}
+.contentViews li a {
+	}
+#portal-globalnav {
+	margin: 0px;
+	left:180px;
+	padding: 0;
+        background: white;
+	color:black;
+	list-style: none;
+	text-decoration:none;
+	width: 800px;
+	border-bottom: 1px solid #ccc;
+	display: inline;
+	position:absolute;
+	top:180px;
+	z-index:303;
+	padding: 5px;
+	}
+#portal-globalnav li {
+	position: relative;
+	display: inline;
+	}
+#portal-globalnav li a {
+	display: inline;
+	text-decoration: none;
+        color: white;
+	background: #000;
+	padding: 5px;
+	border: 1px solid #ccc;
+	border-bottom: 0;
+	}
+.hiddenStructure
+{
+	display:none;
+}
+#portal-windmill
+{
+	z-index:-1;
+	left:0px;
+	top:0px;
+	position:absolute;
+	margin-top:10px;
+	margin-left:10px;
+	padding:0px;
+	display: inline;
+	list-style:none;
+	text-decoration:none;
+}
+#portal-personaltools dd
+{
+}
+#portal-personaltools dd ul
+{
+}
+#portal-personaltools dd ul li
+{
+	list-style:none;
+	text-decoration:none;
+}
+#portal-personaltools dd ul li a
+{
+	color:#688;
+}
+#portal-personaltools
+{
+	list-style:none;
+	text-decoration:none;
+	position:absolute;
+	top:70px;
+	left:10px;
+	width:500px;
+}
+#plone-contentmenu-factories
+{
+        display: block;
+}
+#plone-contentmenu-factories dd
+{
+        display: none;
+}
+#plone-contentmenu-display
+{
+        display: block;
+}
+#plone-contentmenu-display dd
+{
+        display: none;
+}
+#plone-contentmenu-actions
+{
+        display: block;
+}
+#plone-contentmenu-actions dd
+{
+        display: none;
+}
+#plone-contentmenu-display
+{
+        display: block;
+}
+#plone-contentmenu-actions
+{
+        display: block;
+}
+#portal-searchbox {
+	position:absolute;
+        background: white;
+	color:black;
+	z-index:101;
+	top:90px;
+	left:750px;
+	width:auto;
+	height:75px;
+}
+#content-views {
+	margin: 0px;
+	left:630px;
+	padding: 0;
+        background: white;
+        color: #b6546d;
+	list-style: none;
+	text-decoration:none;
+	width: 800px;
+	border-bottom: 1px solid #ccc;
+	display: inline;
+	position:absolute;
+	top:45px;
+	}
+#content-views li {
+	position: relative;
+	display: inline;
+	}
+#content-views li a {
+	display: inline;
+        color: #b6546d;
+        background: white;
+	display: inline;
+	text-decoration: none;
+	padding: 5px;
+	border: 1px solid #ccc;
+	border-bottom: 0;
+	}
+#contentActionMenus {
+	position:absolute;
+	top:300px;
+	left:700px;
+	list-style: none;
+	text-decoration:none;
+	background-color:pink;
+	z-index:505;
+	display:inline;
+	}
+#contentActionMenus li a {
+	}
+#contentActionMenus li {
+	padding: 10px;
+	margin: 10px;
+	position: relative;
+	}
+#contentActionMenus li dl {
+	display:inline;
+}
+#contentActionMenus li dl dd {
+	display:none;
+}
+#contentActionMenus li dl dt {
+	display:inline;
+}
+#portal-columns {
+	position:absolute;
+	top:200px;
+	left:100px;
+}
+#portal-column-one {
+}
+#content-core {
+	left:0px;
+	position:relative;
+}
+.navTree {
+	left: -20px;
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+	text-decoration:none;
+	}
+.navTree li {
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+	}
+.navTree li a {
+	left: -20px;
+        color:#276864;
+	margin: 0px;
+	padding: 0px;
+	}
+.navTreeLevel1 {
+	margin-left:20px;
+}
+.navTreeLevel2 {
+	margin-left:40px;
+}
+.portletItem {
+        color:#276864;
+        background: white;
+	left:10px;
+	width:300px;
+	margin:10px;
+	padding:0px;
+	width:130px;
+	position:relative;
+}
+#portal-colophon {
+	display:none;
+}
+#kss-spinner {
+	display:none;
+}
+.colophonWrapper {
+	display:none;
+}
+#portal-siteactions {
+	display:none;
+}
+#portal-footer {
+	display:none;
+}
+#portal-masthead {
+	#opacity: 0.4;
+	left: 180px;
+	height:100px;
+	width:auto;
+	top:30px;
+	position:absolute;
+	padding:0px;
+}
+.masthead {
+	text-decoration:none;
+	font-size:50pt;
+	font-weight:bold;
+        color: #b6546d;
+	font-style:Times-Roman,Palantino,serif;
+	text-align:center;
+	white-space:nowrap;
+}
+#portal-volumeno
+{
+	position:absolute;
+	width:200px;
+	top: 15px;
+	left:350px;
+}
+#portal-motto
+{
+	#opacity: 0.4;
+	position:absolute;
+	width:auto;
+        top:110px;	
+	height:50px;
+	left:180px;
+	margin:10px;
+	padding:10px;
+        color: #b6546d;
+	text-decoration:none;
+	font-size:12pt;
+	font-weight:regular;
+	font-style:Serif;
+}
+#portal-link
+{
+	position:relative;
+	top:0px;
+	left:0px;
+}
+#portal-slogan
+{
+	position:relative;
+	top:0px;
+	left:400px;
+}
+#portal-personaltools-wrapper
+{
+	left:10px;
+	top:10px;
+	position:absolute;
+        color: #b6546d;
+}
+.portletFooter
+{
+	left:200px;
+	position:relative;
+	z-index:606;
+}
+#portlet_column_two
+{
+}
+.richcolumn 
+{
+	text-align:justify;
+}
+#portal-globalnav
+{
+    position:absolute;
+    left:190px;
+    top:0px;
+    width:960px;
+    background-color:black;
+}
+.actionMenuHeader
+{
+    color:black;
+}
+.pix-caption {
+	position:relative;
+        color: #b6546d;
+	top: -30px;
+	margin-left:20px;
+}
+#portlet-cart {
+	;position:absolute;
+	;left: 980px;
+	top:80px;
+	width:300px;
+	height:150px;
+}
+#portlet-cart .portletItem {
+        color:#276864;
+        background: white;
+	left:20px;
+	width:300px;
+	margin:10px;
+	margin-left:10px;
+	position:relative;
+}
+#portlet-cart .portletHeader {
+	color:#276864;
+	background: white;
+	width:300px;
+	left:20px;
+	margin-left:10px;
+	position:relative;
+}	
+#portlet-cart .portletFooter {
+	color:#276864;
+	background: white;
+	width:300px;
+	left:20px;
+	margin-left:10px;
+	position:relative;
+}
+/* @group Portlets */
+
+dl.portlet {
+    margin: 0 0 1em;
+    font-size: 80%;
+}
+dl.portletError {
+    background-color: #FFA500;
+}
+
+dl.portlet dt,
+div.portletAssignments div.portletHeader {
+    padding: 0.42em 1em;
+    background: #ddd;
+    line-height: normal;
+}
+dl.portlet dt.hiddenStructure {
+    padding: 0;
+}
+div.portletAssignments {
+    font-size: 0.8em;
+    line-height: 2em;
+}
+
+div.portletAssignments .managedPortletActions {
+    float: right;
+}
+div.portletAssignments .managedPortletActions a {
+    margin: 0 0.25em;
+    border: none;
+}
+
+dl.portlet dt a:link,
+dl.portlet dt a:visited,
+dl.portlet dt a:hover {
+    color: black;
+    display: block;
+    border: none;
+}
+
+dl.portlet dd.portletItem,
+dl.portlet dd.portletFooter,
+dl.portletError dd {
+    padding: 1em;
+}
+.hFinderDrop1
+{
+    top: 400px;
+    left: 200px;
+    position:absolute;
+    background-color:red;
+    height:800px;
+    width:275px;
+}
+.hFinderDrop2
+{
+    top: 400px;
+    left: 400px;
+    position:absolute;
+    background-color:red;
+    height:800px;
+    width:275px;
+}
+.hFinderDrop3
+{
+    top: 400px;
+    left: 600px;
+    position:absolute;
+    background-color:red;
+    height:800px;
+    width:275px;
+}
+.hFinderDrop4
+{
+    top: 400px;
+    left: 800px;
+    position:absolute;
+    background-color:red;
+    height:800px;
+    width:275px;
+}

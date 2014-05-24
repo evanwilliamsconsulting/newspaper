@@ -1,0 +1,221 @@
+# -*- coding: utf-8 -*-
+#
+# File: CreditsBox.py
+#
+# Copyright (c) 2012 by unknown <unknown>
+# Generator: ArchGenXML Version 2.6
+#            http://plone.org/products/archgenxml
+#
+# GNU General Public License (GPL)
+#
+
+__author__ = """unknown <unknown>"""
+__docformat__ = 'plaintext'
+
+from AccessControl import ClassSecurityInfo
+from Products.Archetypes.atapi import *
+from zope.interface import implements
+from Products.CMFCore import permissions
+import interfaces
+from reportlab.lib.colors import black,green,white
+
+from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
+
+from Products.CreditsBox.config import *
+
+from Products.Newspaper.PDFPageTemplate import PDFPageTemplate
+
+##code-section module-header #fill in your manual code here
+##/code-section module-header
+
+schema = Schema((
+
+    IntegerField(
+        name='top',
+        widget=IntegerField._properties['widget'](
+            label='Top',
+            label_msgid='CreditsBox_label_top',
+            i18n_domain='CreditsBox',
+        ),
+    ),
+    IntegerField(
+        name='left',
+        widget=IntegerField._properties['widget'](
+            label='Left',
+            label_msgid='CreditsBox_label_left',
+            i18n_domain='CreditsBox',
+        ),
+    ),
+    IntegerField(
+        name='width',
+        widget=IntegerField._properties['widget'](
+            label='Width',
+            label_msgid='CreditsBox_label_width',
+            i18n_domain='CreditsBox',
+        ),
+    ),
+    TextField(
+        name='description',
+        widget=TextAreaWidget(
+            label='Description',
+            label_msgid='CreditsBox_label_description',
+            i18n_domain='CreditsBox',
+        ),
+    ),
+    TextField(
+        name='rates',
+        widget=TextAreaWidget(
+            label='Rates',
+            label_msgid='CreditsBox_label_rates',
+            i18n_domain='CreditsBox',
+        ),
+    ),
+
+),
+)
+
+##code-section after-local-schema #fill in your manual code here
+##/code-section after-local-schema
+
+CreditsBox_schema = BaseFolderSchema.copy() + \
+    schema.copy()
+
+##code-section after-schema #fill in your manual code here
+##/code-section after-schema
+
+class CreditsBox(BaseFolder, BrowserDefaultMixin):
+    """
+    """
+    security = ClassSecurityInfo()
+
+    implements(interfaces.ICreditsBox)
+
+    meta_type = 'CreditsBox'
+    _at_rename_after_creation = True
+
+    schema = CreditsBox_schema
+
+    ##code-section class-header #fill in your manual code here
+    ##/code-section class-header
+
+    # Methods
+    security.declarePublic(permissions.View,'getHeight')
+    def getHeight(self):
+	    """
+	    Test
+	    """
+	    return 320
+
+    security.declarePublic(permissions.View,'web')
+    def web(self):
+	"""
+	Return Web Content
+        """
+	items = self.listFolderContents(contentFilter={"portal_type":"Contributor"})
+	theDiv = "<div>"
+	for contributor in items:
+		contributorid = contributor.getId()
+		first = contributor.getFirst()
+		last = contributor.getLast()
+		email = contributor.getEmail()
+		theDiv += "<div id='" + contributorid + "'>"
+		theDiv += "<span>" + first + "&nbsp;" + last + ":&nbsp;</span>"
+		theDiv += "<span>" + email + "</span>"
+		theDiv += "</div>"
+	theDiv += "</div>"
+	return theDiv
+
+    def callPDFPDTBySameName(self,c,x,y,REQUEST,parent,top,pagenumber):
+	    """
+	    Test
+	    """
+	    xorig = self.getLeft()
+	    yorig = self.getTop()
+	    xorig = x
+	    yorig = 1170 - y
+	    yorig -= 40
+	    theString = "New Holland Press"
+	    #width = c.stringWidth(theString,"Times-Roman",18)
+	    width= self.getWidth()
+	    width += 44
+	    x += width
+	    c.setStrokeColor(green)
+	    c.setFillColor(green)
+	    c.rect(xorig,yorig-24,width+44,44,stroke=1,fill=1)
+	    c.setFillColor(white)
+	    c.setStrokeColor(white)
+	    c.setFont("Times-Roman",24)
+	    c.setLineWidth(2)
+	    y = yorig
+	    centerX = xorig +  int((float(x)-float(xorig))/2) + 24
+	    c.drawCentredString(centerX,y,theString)
+	    c.setStrokeColor(black)
+	    c.setFillColor(black)
+	    x = xorig
+	    y-=40
+	    xt = x + 20
+	    c.setFont("Times-Roman",11)
+            textobject = c.beginText()
+            textobject.setTextOrigin(xt,y)
+	    items = self.listFolderContents(contentFilter={"portal_type":"Contributor"})
+	    for person in items:
+		title = person.Title()
+		first = person.getFirst()
+		last = person.getLast()
+		email = person.getEmail()	
+		line = title + ": " + first + " " + last 
+		textobject.setTextOrigin(xt,y)
+		textobject.textLine(line)
+	        y-=15	
+		emailLine = "    " + email
+		textobject.setTextOrigin(xt,y)
+		textobject.textLine(emailLine)
+		y-=20
+            textobject.setTextOrigin(xt,y)
+	    textobject.textLine("New Holland Press is published weekly at:")
+	    y-=20
+            textobject.setTextOrigin(xt,y)
+	    textobject.textLine("21 Lincoln Ave., Princeton, NJ 08540.")
+	    y-=20
+            textobject.setTextOrigin(xt,y)
+	    textobject.textLine("908-359-8070.")
+	    y-=20
+            textobject.setTextOrigin(xt,y)
+	    textobject.textLine("Your Comments and Letters are welcome.")
+	    y-=20
+            textobject.setTextOrigin(xt,y)
+	    textobject.textLine("Ad Copy is $40 for four insertions.")
+	    y-=20
+            textobject.setTextOrigin(xt,y)
+	    textobject.textLine("A Line in the Classifieds is $1.")
+	    y -= 20
+            textobject.setTextOrigin(xt,y)
+	    textobject.textLine("Sales: email editor@newhollandpress.com")
+	    #y -= 20
+            #textobject.setTextOrigin(xt,y)
+	    #textobject.textLine("Photo Reprints, $25 by mail.")
+	    c.drawText(textobject)
+	    y -= 10 
+	    farSide = x + width + 44
+	    #for item in self.listFolderContents():
+            #		response = item.callPDFPDTBySameName(c,x,y,REQUEST,parent,top)
+	    #	y -= 102
+	    c.line(xorig,y-2,farSide,y-2)
+	    c.line(xorig,yorig-24,xorig,y-2)
+	    c.line(farSide,yorig-24,farSide,y-2)
+	    return (x,y)
+
+    def getSnapshot(self,width,height):
+	    """
+	    Snapshot
+	    """
+ 	    tag = "<div style='background-color:yellow;width=" + str(width) + ";height=" + str(height) + ";'>"
+	    tag += "Credits Box"
+	    tag += "</div>"
+	    return tag
+
+registerType(CreditsBox, PROJECTNAME)
+# end of class CreditsBox
+
+##code-section module-footer #fill in your manual code here
+##/code-section module-footer

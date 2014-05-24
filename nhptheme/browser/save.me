@@ -1,0 +1,61 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="plone">
+
+    <interface
+        interface=".interfaces.IThemeSpecific"
+        type="zope.publisher.interfaces.browser.IBrowserSkinType"
+        name="New Holland Press Theme"
+        />
+
+    <!-- New Holland Press Masthead -->
+    <browser:viewlet
+        name="nhptheme_templates.nhpmasthead"
+	manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+	class=".viewlets.NhpmastheadViewlet"
+	permission="zope2.View"
+    />
+    <!-- A Paper of Discussion -->
+    <browser:viewlet
+        name="nhptheme_templates.masthead"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".viewlets.MastheadViewlet"
+        permission="zope2.View"
+        />
+    <!-- A Paper of Discussion -->
+    <browser:viewlet
+	name="nhptheme_templates.motto"
+	manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+	class=".viewlets.MottoViewlet"
+	permission="zope2.View"
+	/>
+    <!-- Volume X No 2 -->
+    <browser:viewlet
+	name="nhptheme_templates.volumenum"
+	manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+	class=".viewlets.VolumenumViewlet"
+	permission="zope2.View"
+	/>
+    <!-- Date of Publication -->
+    <browser:viewlet
+	name="nhptheme_templates.publicationdate"
+	manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+	class=".viewlets.PublicationDateViewlet"
+	permission="zope2.View"
+	/>
+    <!-- What Price Freedom?! -->
+    <browser:viewlet
+	name="nhptheme_templates.price"
+	manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+	class=".viewlets.PriceViewlet"
+	permission="zope2.View"
+	/>
+    <!-- United States of America flagship and localization -->
+    <browser:viewlet
+        name="nhptheme_templates.flagship"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".viewlets.FlagshipViewlet"
+        permission="zope2.View"
+        />
+</configure>

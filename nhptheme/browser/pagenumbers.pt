@@ -1,0 +1,9 @@
+<div id="portal-pagenumbers"
+     i18n:domain="plone"
+     tal:define="pages view/pages;">
+	<div tal:repeat="item pages">
+	    <div tal:define="itemname python:item[0];container python:context.aq_inner.aq_parent;linky python:container[itemname].absolute_url()">
+		<a href="#" tal:attributes="href linky" tal:content="itemname">linky</a>
+	    </div>
+	</div>
+</div>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<object
+    name="portal_controlpanel"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+
+    <configlet
+        title="Facbook Like-button settings"
+        category="Products"
+        condition_expr=""
+        url_expr="string:${portal_url}/@@like-controlpanel"
+        icon_expr="string:"
+        visible="True"
+        i18n:attributes="title">
+            <permission>Manage portal</permission>
+    </configlet>
+
+</object>

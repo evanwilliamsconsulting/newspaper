@@ -1,0 +1,3 @@
+<div tal:define="headclass context/getHeadlineClass" tal:attributes="class headclass">
+	<div tal:replace="structure context/diagnostics">the headline</div>
+</div>

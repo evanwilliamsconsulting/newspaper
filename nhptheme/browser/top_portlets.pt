@@ -1,0 +1,14 @@
+<div class="topPortlets"
+     tal:define="ploneview context/plone;"
+>
+    <div class="visualPadding"
+         tal:content="structure provider:schools.topportlets" />
+    <div class="manageFooterPortletsLink"
+        tal:condition="view/canManagePortlets">
+      <a href="" 
+        class="managePortletsFallback"
+        tal:attributes="href view/manageUrl"
+        i18n:translate="manage-top-portlet-link">Manage top portlets</a>
+    </div>
+</div>
+<div class="themeComment">This is quintagroup.theme.schools top portlets manager</div>

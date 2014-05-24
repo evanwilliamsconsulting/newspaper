@@ -1,0 +1,13 @@
+	    items = self.listFolderContents(contentFilter={"portal_type":"Advertizement"})
+	    for ad in items:
+	        theImage=ad.getImagecopy()
+	    	theImageData = theImage.data
+	    	theImageData = str(theImageData)
+	    	theImageReader = ImageReader(cStringIO.StringIO(theImageData))
+		width = ad.getWidth()
+		height = ad.getHeight()
+            	parent = self.aq_inner.aq_parent
+	        c.drawImage(theImageReader,x,y,width,height,anchor='ne')
+		returny = y + height - 100
+                returnx = x 
+	    	return (returnx,returny)

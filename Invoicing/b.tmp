@@ -1,0 +1,10 @@
+		for theAd in theAds:
+		    someAd = theAd.aq_inner
+		    theTitle= someAd.Title()
+		    theImage = theAd.getImage()
+	            thePress = ImageReader(StringIO(str(theImage.data)))
+		    (width,height) = thePress.getSize()
+		    aspect = float(height)/float(width)
+		    width = 150
+		    height = aspect * width 
+	            c.drawImage(thePress,100,400,width,height)

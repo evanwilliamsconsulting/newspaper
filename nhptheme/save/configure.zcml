@@ -1,0 +1,112 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:carousel="http://namespaces.plone.org/carousel"  
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="quintagroup.theme.schools">
+
+    <!-- 'Schools Theme' Zope 3 browser layer -->
+    <interface
+        interface=".interfaces.IThemeSchools"
+        type="zope.publisher.interfaces.browser.IBrowserSkinType"
+        name="Schools Theme"
+        />
+
+    <!-- Zope 3 browser resources -->
+
+    <browser:viewlet
+        name="schools.top_portlets"
+        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+        class=".viewlets.TopPortletsViewlet"
+        layer=".interfaces.IThemeSchools"
+        permission="zope2.View"
+        />
+    <!--browser:viewlet
+        name="schools.top_portlets"
+        view="plone.app.portlets.browser.interfaces.IManageContextualPortletsView"
+        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+        template="templates/top_portlets.pt"
+        class=".viewlets.ManageContextualPortletsViewlet"
+        layer=".interfaces.IThemeSchools"
+        permission="zope2.View"
+        /-->
+    <browser:viewlet
+        name="schools.searchbox"
+        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+        class="plone.app.layout.viewlets.common.SearchBoxViewlet"
+        layer=".interfaces.IThemeSchools"
+        permission="zope2.View" 
+        />
+    <browser:viewlet
+        name="schools.site_actions"
+        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+        class="plone.app.layout.viewlets.common.SiteActionsViewlet"
+        layer=".interfaces.IThemeSchools"
+        permission="zope2.View" 
+        />
+    <browser:viewlet
+        name="schools.visual"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        template="templates/visual.pt"
+        layer=".interfaces.IThemeSchools"
+        permission="zope2.View"
+        />
+    <browser:viewlet
+        name="schools.path_bar"
+        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+        class="plone.app.layout.viewlets.common.PathBarViewlet"
+        layer=".interfaces.IThemeSchools"
+        permission="zope2.View"
+        />
+    <browser:viewlet
+        name="schools.global_sections"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContent"
+        class=".viewlets.SchoolsGlobalSections"
+        layer=".interfaces.IThemeSchools"
+        permission="zope2.View"
+        />
+    <browser:viewlet
+        name="schools.footer"
+        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+        template="templates/footer.pt"
+        layer=".interfaces.IThemeSchools"
+        permission="zope.Public"
+        />
+    <include package="plone.app.portlets" />
+    <browser:page
+        for="plone.portlets.interfaces.ILocalPortletAssignable"
+        class="plone.app.portlets.browser.manage.ManageContextualPortlets"
+        name="manage-topportlets"
+        template="templates/managetopportlets.pt"
+        permission="plone.app.portlets.ManagePortlets"
+        layer=".interfaces.IThemeSchools"
+        />
+
+    <configure zcml:condition="installed Products.Carousel">
+    <carousel:banner
+        name="banner-default"
+        template="templates/banner-default.pt"
+        title="Default"
+        layer=".interfaces.IThemeSchools"
+        />
+    <browser:resource
+        name="carousel.css"
+        file="resources/carousel.css"
+        layer=".interfaces.IThemeSchools"
+        />    
+    </configure>
+
+  
+    <browser:resourceDirectory
+        name="quintagroup.theme.schools.templates"
+        directory="templates"
+        layer=".interfaces.IThemeSchools"
+        />
+
+    <!-- -*- extra stuff goes here -*- -->
+    <adapter
+        factory="quintagroup.theme.schools.browser.viewlets.TopPortletRenderer"
+        provides="plone.portlets.interfaces.IPortletManagerRenderer"
+        />
+
+</configure>

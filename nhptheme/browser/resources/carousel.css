@@ -1,0 +1,78 @@
+/*---------- CAROUSEL ----------*/
+.carousel {
+  background: url("sprite.png") repeat-x scroll 0 -150px #D2DEEB;
+  border: 1px solid #CCCCCC;
+  clear:both;
+  height: 333px;
+  margin-bottom: 1em;
+  overflow: hidden;
+  position: relative;                                                                                                                                        }
+.carousel-banners {
+  overflow: visible !important;
+  text-align: center;
+  position: static !important;
+  width: 100% !important; 
+  }
+.carousel-banner {
+  margin-top: 7px;
+  overflow: visible !important;
+  position: static !important;
+  width: 100% !important;
+  }
+.carousel-banner-1 {                                                                                                                                         
+  display: block;                                                                                                                                          
+  }          
+#carousel-over {
+  background: url("photo-frame.png") no-repeat scroll 50% 0 transparent;
+  height: 334px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  }
+.carousel-text {
+  background-color: transparent;
+  bottom: 0;
+  left: auto;
+  margin-left: 150px;
+  padding: 0 1em;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  width: auto;
+  }
+.carousel-title {
+  font-size: 1.36em;
+  font-weight:bold;
+  color: #FFFFFF;
+  }
+.carousel-body {
+  color: #FFFFFF;
+  font-size: 1.09em;
+  font-weight: bold; 
+  }
+.carousel-pager {
+  bottom: 0;
+  left: 0;
+  margin: 0.75em 0;
+  position: absolute;
+  }                                                                                                                                                         
+.carousel-pager-item,                                                                                                                                        
+.carousel-pager-button-prev,                                                                                                                                 
+.carousel-pager-button-next {                                                                                                                                
+  background-color: #DDDDDD;                                                                                                                               
+  padding: 0.25em 0.5em;                                                                                                                                   
+  }                                                                                                                                                            
+.carousel-pager-item-active {                                                                                                                                
+  background-color: #75AD0A;                                                                                                                               
+  }                                                                                                                                                            
+.carousel-pager-item-active:link,                                                                                                                            
+.carousel-pager-item-active:visited,                                                                                                                         
+.carousel-pager-item-active .carousel-title {                                                                                                                
+  color: white;                                                                                                                                            
+  }                                                                                                                                                            
+.carousel-pager-item-classic {                                                                                                                               
+  cursor: pointer;                                                                                                                                         
+  }                                                                                                                                                            
+.carousel-settings-introduction {                                                                                                                            
+  margin-bottom: 1em;                                                                                                                                      
+  }    

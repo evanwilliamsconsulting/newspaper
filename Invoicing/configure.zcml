@@ -1,0 +1,43 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:i18n="http://namespaces.zope.org/i18n"
+           i18n_domain="Invoicing">
+
+  <!-- ##code-section configure.zcml.header -->
+  <!-- ##/code-section configure.zcml.header -->
+
+  <i18n:registerTranslations directory="locales" />
+
+  <include file="profiles.zcml" />
+
+  <!--five:implements
+	class="..Invoicing.Company.Company"
+	interface="Products.PloneGetPaid.interfaces.IBuyableMarker"
+  /-->
+
+  <!--adapter
+        for="..Invoicing.interfaces.ICompany"
+        provides="getpaid.core.interfaces.IBuyableContent"
+	factory="Products.PloneGetPaid.content.BuyableContentAdapter"
+  /-->
+
+  <browser:page
+     for="Products.Invoicing.interfaces.IAdvertizement"
+     name="json"
+     class="Products.Invoicing.Advertizement.AdvertizementJSON"
+     permission="zope2.View"
+  />
+
+  <browser:page
+     for="Products.Invoicing.interfaces.ICompany"
+     name="json"
+     class="Products.Invoicing.Company.CompanyJSON"
+     permission="zope2.View"
+  />
+
+
+  <!-- ##code-section configure.zcml -->
+  <!-- ##/code-section configure.zcml -->
+
+</configure>

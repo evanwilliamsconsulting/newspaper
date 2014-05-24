@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<object name="portal_workflow" meta_type="Plone Workflow Tool">
+<!-- ##code-section workflowobjects -->
+<!-- ##/code-section workflowobjects -->
+ <bindings>
+  <type type_id="Contact">
+   <bound-workflow workflow_id="member_auto_workflow" />
+  </type>
+<!-- ##code-section workflowbindings -->
+<!-- ##/code-section workflowbindings -->
+ </bindings>
+</object>

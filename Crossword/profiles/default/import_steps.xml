@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<import-steps>
+
+ 
+
+
+ <import-step 
+    id="Crossword-Update-RoleMappings" 
+    handler="Products.Crossword.setuphandlers.updateRoleMappings"
+    title="Update Workflow role mappings for Crossword"
+    version="2011-05-19T05:42:14.706241">
+   <dependency step="Crossword-QI-dependencies"/>
+   updates the workflow role mappings for Crossword
+ </import-step>
+
+ <import-step 
+    id="Crossword-postInstall" 
+    handler="Products.Crossword.setuphandlers.postInstall"
+    title="manual coded post-install for Crossword"
+    version="2011-05-19T05:42:14.706241">
+   <dependency step="Crossword-QI-dependencies"/>
+   manual coded post-install for Crossword
+ </import-step>
+
+<!-- ##code-section ADDITIONALSTEPS -->
+<!-- ##/code-section ADDITIONALSTEPS -->
+
+</import-steps>
+ 

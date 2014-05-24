@@ -1,0 +1,6 @@
+<metal:block  metal:use-macro="context/main_template/macros/master">
+<metal:main fill-slot="content">
+      <tal:main-macro metal:define-macro="content">
+      </tal:main-macro>
+</metal:main>
+</metal:block>

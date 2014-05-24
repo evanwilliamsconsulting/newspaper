@@ -1,0 +1,68 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:carousel="http://namespaces.plone.org/carousel"
+    i18n_domain="plone">
+
+    <interface
+        interface=".interfaces.IThemeSpecific"
+        type="zope.publisher.interfaces.browser.IBrowserSkinType"
+        name="New Holland Press Theme"
+        />
+    <!-- Entire NHPTHEME -->
+    <browser:viewlet
+        name="nhptheme_templates.nhptheme"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".viewlets.NhpmastheadViewlet"
+        permission="zope2.View"
+        />
+    <!-- A Paper of Discussion -->
+    <browser:viewlet
+        name="nhptheme_templates.masthead"
+        manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+        class=".viewlets.MastheadViewlet"
+        permission="zope2.View"
+        />
+    <!-- A Paper of Discussion -->
+    <browser:viewlet
+        name="nhptheme_templates.path_bar"
+        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+        class="plone.app.layout.viewlets.common.PathBarViewlet"
+        permission="zope2.View"
+        />
+
+    <!-- The breadcrumbs -->
+    <browser:viewlet
+        name="nhptheme_templates.path_bar"
+        manager="plone.app.layout.viewlets.interfaces.IAboveContent"
+        class=".viewlets.PathBarViewlet"
+        permission="zope2.View"
+        />
+    <!-- The breadcrumbs -->
+    <!--browser:viewlet
+        name="nhptheme_templates.pagenumbers"
+        manager="plone.app.layout.viewlets.interfaces.IPortalTop"
+        class=".viewlets.PageNumbersViewlet"
+        permission="zope2.View"
+        /-->
+    <browser:viewlet
+        name="nhptheme_templates.footer"
+        manager="plone.app.layout.viewlets.interfaces.IPortalFooter"
+        template="footer.pt"
+        layer=".interfaces.INHPTheme"
+        permission="zope.Public"
+        />
+
+    <browser:resourceDirectory
+        name="nhptheme.templates"
+        directory="templates"
+        layer=".interfaces.INHPTheme"
+        />
+
+    <!-- -*- extra stuff goes here -*- -->
+    <!--adapter
+        factory="Products.nhptheme.browser.viewlets.TopPortletRenderer"
+        provides="plone.portlets.interfaces.IPortletManagerRenderer"
+        /-->
+</configure>

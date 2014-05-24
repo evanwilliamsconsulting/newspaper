@@ -1,0 +1,28 @@
+<configure
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:gs="http://namespaces.zope.org/genericsetup"
+    i18n_domain="ploneexample.portlet">
+
+    <five:registerPackage package="." initialize=".initialize" />
+
+    <include package="plone.app.portlets"/>
+
+    <gs:registerProfile
+        name="ploneexample.portlet"
+        title="Recent Items Example"
+        directory="profiles/default"
+        description="An example portlet"
+        provides="Products.GenericSetup.interfaces.EXTENSION"
+        />
+
+    <plone:portlet
+        name="ploneexample.portlet.Recent"
+        interface=".portlets.topimage.IRecentPortlet"
+        assignment=".portlets.topimage.Assignment"
+        renderer=".portlets.topimage.Renderer"
+        addview=".portlets.topimage.AddForm"
+        editview=".portlets.topimage.EditForm"
+        />
+
+</configure>

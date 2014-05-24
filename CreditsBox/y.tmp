@@ -1,0 +1,10 @@
+	    verbage = self.Title()
+	    score = str(self.getScore())
+            textobject = c.beginText()
+            textobject.setTextOrigin(x,y)
+            textobject.setFont("Times-Roman",10)
+	    team = verbage + " " + score
+            textobject.textLine(team)
+	    c.drawText(textobject)
+	    y+=15
+	    return (x,y)

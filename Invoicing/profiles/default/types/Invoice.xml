@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<object name="Invoice"
+        meta_type="Factory-based Type Information with dynamic views"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        i18n:domain="plone">
+   
+ <property name="title" i18n:translate="">Invoice</property>
+ <property name="description" i18n:translate=""></property>
+ <property name="content_icon">Invoice.gif</property>
+ <property name="content_meta_type">Invoice</property>
+ <property name="product">Invoicing</property>
+ <property name="factory">addInvoice</property>
+ <property name="immediate_view">folder_listing</property>
+ <property name="global_allow">False</property>
+ <property name="filter_content_types">True</property>
+ <property name="allowed_content_types">
+   <element value="LineItems"/>
+ </property>
+ <property name="allow_discussion">False</property>
+ <property name="default_view">folder_listing</property>
+ <property name="view_methods">
+  <element value="folder_summary_view"/>
+  <element value="folder_tabular_view"/>
+  <element value="atct_album_view"/>
+  <element value="folder_listing"/>
+  <element value="pdfshow"/>
+  <element value="letter"/>
+  <element value="test"/>
+ </property>
+ <property name="default_view_fallback">False</property>
+ <alias from="(Default)" to="(dynamic view)"/>
+ <alias from="view" to="(selected layout)"/>
+ <alias from="edit" to="base_edit"/>
+ <alias from="sharing" to="@@sharing"/>
+ <action title="View" 
+         action_id="view"
+         category="object" 
+         condition_expr=""
+         url_expr="string:${object_url}/view" 
+         visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Letter" 
+         action_id="letter"
+         category="object" 
+         condition_expr=""
+         url_expr="string:${object_url}/letter" 
+         visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="PDF" 
+         action_id="just"
+         category="object" 
+         condition_expr=""
+         url_expr="string:${object_url}/just" 
+         visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Edit" 
+         action_id="edit"
+         category="object" 
+         condition_expr="not:object/@@plone_lock_info/is_locked_for_current_user"
+         url_expr="string:${object_url}/edit" 
+         visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+</object>

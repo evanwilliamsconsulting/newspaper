@@ -1,0 +1,88 @@
+# archgenxml generated POT File
+# unknown <unknown>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: Crossword\n"
+"POT-Creation-Date: Thu May 19 05:42:14 2011\n"
+"PO-Revision-Date: Thu May 19 05:42:14 2011\n"
+"Last-Translator: unknown <unknown>\n"
+"Language-Team: unknown <unknown>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: latin1 utf-8\n"
+"Domain: Crossword\n"
+
+#. Default: "Answer"
+#: Clue.py
+msgid "Crossword_label_Answer"
+msgstr ""
+
+#. Default: "Answerlanguage"
+#: Clue.py
+msgid "Crossword_label_AnswerLanguage"
+msgstr ""
+
+#. Default: "Author"
+#: Puzzle.py
+msgid "Crossword_label_Author"
+msgstr ""
+
+#. Default: "Caption"
+#: Puzzle.py
+msgid "Crossword_label_Caption"
+msgstr ""
+
+#. Default: "Clue"
+#: Clue.py
+msgid "Crossword_label_Clue"
+msgstr ""
+
+#. Default: "Dateofpublication"
+#: Puzzle.py
+msgid "Crossword_label_DateOfPublication"
+msgstr ""
+
+#. Default: "Itemno"
+#: Clue.py
+msgid "Crossword_label_ItemNo"
+msgstr ""
+
+#. Default: "Objective"
+#: Puzzle.py
+msgid "Crossword_label_Objective"
+msgstr ""
+
+#. Default: "Orientation"
+#: Clue.py
+msgid "Crossword_label_Orientation"
+msgstr ""
+
+#. Default: "X"
+#: Clue.py
+msgid "Crossword_label_X"
+msgstr ""
+
+#. Default: "Y"
+#: Clue.py
+msgid "Crossword_label_Y"
+msgstr ""
+
+#. Default: "Gridhigh"
+#: Puzzle.py
+msgid "Crossword_label_gridhigh"
+msgstr ""
+
+#. Default: "Gridpx"
+#: Puzzle.py
+msgid "Crossword_label_gridpx"
+msgstr ""
+
+#. Default: "Gridwide"
+#: Puzzle.py
+msgid "Crossword_label_gridwide"
+msgstr ""
+

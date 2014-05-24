@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<object name="portal_skins"
+        meta_type="Plone Skins Tool"
+        allow_any="False"
+        cookie_persistence="False"
+        request_varname="plone_skin">
+
+ <object name="newspaper_images"
+         meta_type="Filesystem Directory View"
+         directory="Newspaper/skins/newspaper_images"/>
+ <object name="newspaper_styles"
+         meta_type="Filesystem Directory View"
+         directory="Newspaper/skins/newspaper_styles"/>
+ <object name="newspaper_templates"
+         meta_type="Filesystem Directory View"
+         directory="Newspaper/skins/newspaper_templates"/>
+ <object name="newspaper_javascripts"
+         meta_type="Filesystem Directory View"
+         directory="Newspaper/skins/newspaper_javascripts"/>
+ 
+ <skin-path name="*">
+  <layer insert-after="custom" 
+         name="newspaper_images"/>
+  <layer insert-after="custom" 
+         name="newspaper_templates"/>
+  <layer insert-after="custom" 
+         name="newspaper_javascripts"/>
+ </skin-path>
+
+</object>

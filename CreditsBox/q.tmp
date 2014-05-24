@@ -1,0 +1,11 @@
+    def getWidth(self):
+	    """
+	    Test
+	    """
+	    return 280
+
+    def getHeight(self):
+	    """
+	    Test
+	    """
+	    return 320

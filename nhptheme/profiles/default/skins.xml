@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<object name="portal_skins" default_skin="nhptheme">
+
+ <object name="nhptheme_images"
+    meta_type="Filesystem Directory View"
+    directory="nhptheme/skins/nhptheme_images"/>
+ <object name="nhptheme_templates"
+    meta_type="Filesystem Directory View"
+    directory="nhptheme/skins/nhptheme_templates"/>
+ <object name="nhptheme_styles"
+    meta_type="Filesystem Directory View"
+    directory="nhptheme/skins/nhptheme_styles"/>
+ <object name="nhptheme_javascripts"
+    meta_type="Filesystem Directory View"
+    directory="nhptheme/skins/nhptheme_javascripts"/>
+ <object name="nhptheme_kss"
+    meta_type="Filesystem Directory View"
+    directory="nhptheme/skins/nhptheme_kss"/>
+
+ <skin-path name="nhptheme" based-on="Plone Default">
+  <layer name="nhptheme_images"
+     insert-after="custom"/>
+  <layer name="nhptheme_templates"
+     insert-after="nhptheme_images"/>
+  <layer name="nhptheme_styles"
+     insert-after="nhptheme_templates"/>
+  <layer name="nhptheme_javascripts"
+     insert-after="nhptheme_styles"/>
+  <layer name="nhptheme_kss"
+     insert-after="nhptheme_javascripts"/>
+ </skin-path>
+
+</object>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<object name="portal_skins"
+        meta_type="Plone Skins Tool"
+        allow_any="False"
+        cookie_persistence="False"
+        request_varname="plone_skin">
+
+ <object name="crossword_images"
+         meta_type="Filesystem Directory View"
+         directory="Crossword/skins/crossword_images"/>
+ <object name="crossword_styles"
+         meta_type="Filesystem Directory View"
+         directory="Crossword/skins/crossword_styles"/>
+ <object name="crossword_templates"
+         meta_type="Filesystem Directory View"
+         directory="Crossword/skins/crossword_templates"/>
+ 
+ <skin-path name="*">
+  <layer insert-after="custom" 
+         name="crossword_images"/>
+  <layer insert-after="custom" 
+         name="crossword_styles"/>
+  <layer insert-after="custom" 
+         name="crossword_templates"/>
+ </skin-path>
+
+</object>

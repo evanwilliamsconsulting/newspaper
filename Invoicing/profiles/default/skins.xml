@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+
+<object name="portal_skins"
+        meta_type="Plone Skins Tool"
+        allow_any="False"
+        cookie_persistence="False"
+        request_varname="plone_skin">
+
+ <object name="invoicing_images"
+         meta_type="Filesystem Directory View"
+         directory="Invoicing/skins/invoicing_images"/>
+ <object name="invoicing_styles"
+         meta_type="Filesystem Directory View"
+         directory="Invoicing/skins/invoicing_styles"/>
+ <object name="invoicing_templates"
+         meta_type="Filesystem Directory View"
+         directory="Invoicing/skins/invoicing_templates"/>
+ 
+ <skin-path name="*">
+  <layer insert-after="custom" 
+         name="invoicing_images"/>
+  <layer insert-after="custom" 
+         name="invoicing_styles"/>
+  <layer insert-after="custom" 
+         name="invoicing_templates"/>
+ </skin-path>
+
+</object>

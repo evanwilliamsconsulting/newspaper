@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<object name="Issue"
+        meta_type="Factory-based Type Information with dynamic views"
+        xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+        i18n:domain="plone">
+   
+ <property name="title" i18n:translate="">Issue</property>
+ <property name="description" i18n:translate=""></property>
+ <property name="content_icon">Issue.gif</property>
+ <property name="content_meta_type">Issue</property>
+ <property name="product">Newspaper</property>
+ <property name="factory">addIssue</property>
+ <property name="immediate_view">folder_listing</property>
+ <property name="global_allow">True</property>
+ <property name="filter_content_types">True</property>
+ <property name="allowed_content_types">
+   <element value="Broadsheet"/>
+   <element value="Container"/>
+ </property>
+ <property name="allow_discussion">False</property>
+ <property name="default_view">showIssueView</property>
+ <property name="view_methods">
+  <element value="showIssueView"/>
+ </property>
+ <property name="default_view_fallback">False</property>
+ <alias from="(Default)" to="showIssueView"/>
+ <alias from="view" to="showIssueView"/>
+ <alias from="edit" to="base_edit"/>
+ <alias from="sharing" to="@@sharing"/>
+ <action title="View" 
+         action_id="view"
+         category="object" 
+         condition_expr=""
+         url_expr="string:${object_url}/showIssueView" 
+         visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="showIssueView" 
+         action_id="showIssueView"
+         category="object" 
+         condition_expr=""
+         url_expr="string:${object_url}/showIssueView" 
+         visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Base" 
+         action_id="base"
+         category="object" 
+         condition_expr=""
+         url_expr="string:${object_url}/base" 
+         visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="PDF" 
+         action_id="pdfshow"
+         category="object" 
+         condition_expr=""
+         url_expr="string:${object_url}/pdfshow" 
+         visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="WEB" 
+         action_id="web"
+         category="object" 
+         condition_expr=""
+         url_expr="string:${object_url}/web" 
+         visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Edit" 
+         action_id="edit"
+         category="object" 
+         condition_expr="not:object/@@plone_lock_info/is_locked_for_current_user"
+         url_expr="string:${object_url}/edit" 
+         visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="JSON"
+	 action_id="JSON"
+	 category="object"
+	 condition_expr=""
+	 url_expr="string:${object_url}/json"
+	 visible="True">
+   <permission value="View"/>
+ </action>
+</object>

@@ -1,0 +1,53 @@
+# archgenxml generated POT File
+# unknown <unknown>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: CreditsBox\n"
+"POT-Creation-Date: Sat Feb  4 07:57:46 2012\n"
+"PO-Revision-Date: Sat Feb  4 07:57:46 2012\n"
+"Last-Translator: unknown <unknown>\n"
+"Language-Team: unknown <unknown>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: latin1 utf-8\n"
+"Domain: CreditsBox\n"
+
+#. Default: "Description"
+#: CreditsBox.py
+msgid "CreditsBox_label_description"
+msgstr ""
+
+#. Default: "Email"
+#: Contributor.py
+msgid "CreditsBox_label_email"
+msgstr ""
+
+#. Default: "First"
+#: Contributor.py
+msgid "CreditsBox_label_first"
+msgstr ""
+
+#. Default: "Last"
+#: Contributor.py
+msgid "CreditsBox_label_last"
+msgstr ""
+
+#. Default: "Rates"
+#: CreditsBox.py
+msgid "CreditsBox_label_rates"
+msgstr ""
+
+#. Default: "Top"
+#: CreditsBox.py
+msgid "CreditsBox_label_top"
+msgstr ""
+
+#. Default: "Width"
+#: CreditsBox.py
+msgid "CreditsBox_label_width"
+msgstr ""
+

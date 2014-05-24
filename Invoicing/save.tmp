@@ -1,0 +1,6 @@
+  <browser:page
+     for="Products.Newspaper.interfaces.IPix"
+     name="json"
+     class="Products.Newspaper.Pix.PixJSON"
+     permission="zope2.View"
+  />

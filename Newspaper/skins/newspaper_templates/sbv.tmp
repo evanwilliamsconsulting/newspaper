@@ -1,0 +1,9 @@
+<metal:block  metal:use-macro="here/index_html/macros/master">
+<metal:main fill-slot="content">
+<tal:main-macro metal:define-macro="content">
+	<tal:loop tal:repeat="block here/Blocks">
+		<span tal:replace="structure block/snapshot">test</span>
+	</tal:loop>
+</tal:main-macro>
+</metal:main>
+</metal:block>

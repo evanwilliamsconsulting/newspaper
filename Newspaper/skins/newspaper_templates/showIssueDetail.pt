@@ -1,0 +1,5 @@
+<tal:main-macro metal:define-macro="content">
+	<div tal:define="firstpage here/firstpage">
+            <div tal:content="structure firstpage/showBlockDetail">First Issue</div>
+	</div>
+</tal:main-macro>

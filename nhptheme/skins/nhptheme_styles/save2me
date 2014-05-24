@@ -1,0 +1,452 @@
+/* @override
+    http://localhost:8080/4/portal_css/Sunburst%20Theme/public.css
+    http://localhost:8080/sprites/portal_css/Sunburst%20Theme/public.css
+*/
+
+/* @group CSS Reset */
+
+/* Remove implicit browser styles to have a neutral starting point:
+   - No elements should have implicit margin/padding
+   - No underline by default on links (we add it explicitly in the body text)
+   - When we want markers on lists, we will be explicit about it, and they render inline by default
+   - Browsers are inconsistent about hX/pre/code, reset
+   - Linked images should not have borders
+   */
+
+* { margin: 0; padding: 0; }
+* :link,:visited { text-decoration:none }
+* ul,ol { list-style:none; }
+* li { display: inline; }
+* h1,h2,h3,h4,h5,h6,pre,code { font-size:1em; }
+* a img,:link img,:visited img { border:none }
+a { outline: none; }
+table { border-spacing: 0; }
+img { vertical-align: text-bottom; }
+iframe { border-width: 0; border-style:none; }
+
+
+/* @end */
+
+/* @group Basics */
+
+body {
+    font: 100% Arial, FreeSans, sans-serif;
+    background: White;
+    color: Black;
+    /* width: 58em; margin: 1em auto; */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Helvetica Neue", Arial, FreeSans, sans-serif;
+    font-weight: bold;
+    color: Black;
+    line-height: 1.5em;
+}
+h1, h2 {
+    letter-spacing: -0.05em;
+}
+h1 {
+    font-size: 2em;
+}
+h2 {
+    font-size: 1.75em;
+}
+h3 {
+    font-size: 1.25em;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+    font-size: 0.8em;
+}
+h2, h3, h4, h5, h6 {
+    color: #444;
+}
+h2 a, h3 a, h4 a {
+    border-bottom: none !important;
+}
+
+p {
+}
+
+a:link, a:visited {
+    color: #205c90;
+}
+a:focus img {
+    outline: thin dotted;
+}
+dt {
+    font-weight: bold;
+}
+input {
+    font-family: "Lucida Grande", Arial, FreeSans;
+}
+
+q {
+    quotes: "“" "”" "‘" "’";
+}
+
+/* @end */
+
+/* @group Navigation/search */
+
+#portal-header {
+    position: relative;
+    z-index: 2;
+}
+
+#portal-logo {
+    display: inline-block;
+    margin: 1.375em 0;
+}
+/* removes extra space above logo in IE6 and IE7 */
+/* .ie6 and .ie7 is set on <html> by Modernizr library */
+.ie6 #portal-logo,
+.ie7 #portal-logo {
+    margin-top: 0;
+}
+
+
+#portal-globalnav {
+    clear: both;
+    font-size: 80%;
+    background: #ddd;
+    /* ensure top navigation dont touches portlets, content etc.. #10491 */
+    margin: 0 0 1em 0;
+}
+#portal-globalnav li {
+}
+#portal-globalnav li a {
+    display: inline-block;
+    padding: 0.5em 1em 2em 1em;
+    background: #ddd;
+    min-width: 6em;
+    white-space: normal;
+    /*TODO: Once we have removed the whitespace from the nav template, this can be put back*/
+    /*border-bottom: 0.1em solid White;*/
+    border-right: 0.1em solid white;
+}
+
+#portal-globalnav .selected a,
+#portal-globalnav a:hover {
+    background: #205c90;
+    color: White;
+}
+#portal-globalnav .selected a:hover {
+    background: #ddd;
+    color: #205c90;
+}
+
+#portal-personaltools {
+    float: right;
+    background: #e3e3e3;
+    position: relative;
+    z-index: 3; /* personaltools should be above #portal-header (with z-index: 2) */
+    top: 0;
+    right: 0;
+    padding: 0.25em 0.5em;
+    font-size: 80%;
+    border-bottom-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    -webkit-border-bottom-right-radius: 0.5em;
+    -webkit-border-bottom-left-radius: 0.5em;
+    -moz-border-radius-bottomleft: 0.5em;
+    -moz-border-radius-bottomright: 0.5em;
+}
+#portal-personaltools #anon-personalbar a {
+    float: left;
+    margin: 0 0.5em;
+}
+
+#portal-languageselector {
+    float: right;
+    background: #e3e3e3;
+    position: relative;
+    top: 0;
+    right: 1px;
+    z-index: 3; /* portal-header has 2 and we need to be above to be clickable */
+    padding: 0.25em 0.5em;
+    font-size: 80%;
+    border-bottom-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    -webkit-border-bottom-right-radius: 0.5em;
+    -webkit-border-bottom-left-radius: 0.5em;
+    -moz-border-radius-bottomleft: 0.5em;
+    -moz-border-radius-bottomright: 0.5em;
+    max-width: 50%;
+}
+
+#portal-searchbox {
+    float: right;
+    text-align: left;
+    clear: right;
+    margin: 1.2em 0;
+    font-size: 80%;
+}
+
+#portal-searchbox form {
+    white-space: nowrap;
+}
+
+#portal-searchbox label {
+    font-weight: normal;
+}
+
+#searchGadget {
+    width: 13em;
+}
+#searchGadget,
+.LSBox input.searchButton {
+}
+
+.LSBox .searchSection {
+}
+
+#content input.searchField {
+    margin-bottom: 1em;
+}
+
+input.searchField {
+/*  -webkit-appearance: searchfield;*/
+    -moz-appearance: searchfield;
+}
+
+/* Collapsible elements in search_form */
+
+.collapsible .collapser.collapsed {
+    padding-right: 14px;
+    background: url('arrowRight.png') center right no-repeat;
+}
+
+.collapsible .collapser.expanded {
+    padding-right: 14px;
+    background: url('arrowDown.png') center right no-repeat;
+}
+/* @end */
+
+/* @group LiveSearch */
+
+#LSResult {
+    position: absolute;
+    right: 0;
+    background: White;
+    margin: -1.5em 0 0 -7em;
+}
+
+#LSResult fieldset {
+    padding: 1em 0 0;
+    border: 0.1em solid #ccc;
+}
+
+#livesearchLegend {
+    background-color:#ccc;
+    padding:0.3em;
+}
+
+#LSResult .LSDescr {
+    font-size: 85%;
+    color: #666;
+}
+
+.LSRow,
+#LSNothingFound {
+    display: block;
+    padding: 0.5em 1em;
+    white-space: normal;
+    width:28em;
+}
+
+.LSHighlight {
+    background: #ddd;
+}
+
+/* @end */
+
+
+/* @group Path indicator (breadcrumbs) */
+
+#portal-breadcrumbs {
+    font-size: 80%;
+    margin-bottom: 1em;
+    margin-left: 0.25em;
+}
+#portal-breadcrumbs a {
+    border-bottom: none;
+    display: inline-block;
+}
+
+.breadcrumbSeparator {
+      color: #666666;
+}
+
+/* @end */
+
+
+
+
+
+/* @group Site actions */
+
+#portal-siteactions {
+    font-size: 85%;
+    padding-bottom: 2em;
+    text-align: center;
+    clear: left;
+}
+#portal-siteactions li {
+    margin-right: 0.5em;
+}
+#portal-siteactions li a:hover {
+    color: #75ad0a
+}
+
+/* @end */
+
+/* @group Listings */
+
+a.link-parent {
+}
+
+a.link-anchor {
+    border: none !important;
+    color: Black !important;
+    cursor: default !important;
+}
+#content a.link-overlay {
+    border-bottom: 1px dotted #205c90 !important;
+}
+
+dl dt .documentByLine {
+    font-weight: normal;
+}
+
+dl dt span.summary a {
+    border: none !important;
+}
+
+/* @end */
+
+/* @group Portlets */
+
+dl.portlet {
+    margin: 0 0 1em;
+    font-size: 80%;
+}
+dl.portletError {
+    background-color: #FFA500;
+}
+
+dl.portlet dt,
+div.portletAssignments div.portletHeader {
+    padding: 0.42em 1em;
+    background: #ddd;
+    line-height: normal;
+}
+dl.portlet dt.hiddenStructure {
+    padding: 0;
+}
+div.portletAssignments {
+    font-size: 0.8em;
+    line-height: 2em;
+}
+
+div.portletAssignments .managedPortletActions {
+    float: right;
+}
+div.portletAssignments .managedPortletActions a {
+    margin: 0 0.25em;
+    border: none;
+}
+
+dl.portlet dt a:link,
+dl.portlet dt a:visited,
+dl.portlet dt a:hover {
+    color: black;
+    display: block;
+    border: none;
+}
+
+dl.portlet dd.portletItem,
+dl.portlet dd.portletFooter,
+dl.portletError dd {
+    padding: 1em;
+}
+
+
+
+div.managePortletsLink,
+a.managePortletsFallback {
+    text-align: center;
+    padding: 0.25em 0.5em;
+    font-size: 80%;
+    margin: 0 auto 1em;
+    background: #ddd;
+    border-radius: 0.5em;
+    -webkit-border-radius: 0.5em;
+    -moz-border-radius: 0.5em;
+}
+a.managePortletsFallback {
+    display:inline-block; /* in order for our vertical margins to work on inline element */
+}
+#content a.managePortletsFallback {
+    display: block;
+    border-bottom: none !important;
+}
+
+#portlet-prefs a {
+    border: none;
+    line-height: 2em;
+}
+
+#visual-portal-wrapper dl.portletCalendar dd {
+    padding: 0;
+}
+
+#dashboard-portlets1,
+#dashboard-portlets2,
+#dashboard-portlets3,
+#dashboard-portlets4 {
+    display: inline-block;
+}
+
+/* @end */
+
+/* @group Navigation portlet */
+
+dl.portlet ul.navTree li a {
+    border: none;
+    display: block;
+    zoom: 1;
+}
+
+dl.portlet ul.navTree li a:hover {
+
+}
+
+dl.portletNavigationTree dd.portletItem {
+    padding: 0;
+}
+
+dl.portlet ul.navTreeLevel0 > .navTreeItem {
+    padding: 0.25em 1em;
+    border-bottom: 0.1em dotted #ddd;
+    line-height: 2em;
+}
+
+dl.portlet ul.navTreeLevel1 .navTreeItem {
+    padding-left: 0.5em;
+    line-height: 2em;
+}
+
+dl.portlet ul.navTree .navTreeCurrentItem {
+    background-color: #ddd;
+    border-left: 1em solid #ddd;
+    margin-left: -1em;
+    margin-right: -1em;
+}
+
+/* @end */

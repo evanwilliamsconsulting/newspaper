@@ -1,0 +1,208 @@
+<configure xmlns="http://namespaces.zope.org/zope"
+           xmlns:browser="http://namespaces.zope.org/browser"
+           xmlns:five="http://namespaces.zope.org/five"
+           xmlns:zcml="http://namespaces.zope.org/zcml"
+           xmlns:i18n="http://namespaces.zope.org/i18n"
+           xmlns:plone="http://namespaces.plone.org/plone"
+           i18n_domain="Newspaper">
+
+<!-- ##code-section BROWSER_HEADER #fill in your manual code here -->
+<!-- ##/code-section BROWSER_HEADER -->
+
+ <browser:page
+     for="*"
+     class="Products.Newspaper.NewspaperPDF.NewspaperPDF"
+     name="pdf_view"
+     template="skins/newspaper_pdf/pdf.pt"
+     permission="zope2.View" />
+
+ 
+  <browser:page
+     for="*"
+     name="NewspaperView"
+     class="Products.Newspaper.NewspaperView.NewspaperView"
+     template="skins/newspaper_templates/NewspaperView.pt"
+     permission="zope2.View"
+     />
+
+
+  <browser:page
+     for="*"
+     name="BraceView"
+     class="Products.Newspaper.BraceView.BraceView"
+     template="skins/newspaper_templates/BraceView.pt"
+     permission="zope2.View"
+     />
+
+  <browser:page
+     for="*"
+     name="BlockView"
+     class="Products.Newspaper.Broadsheet.BlockView"
+     template="skins/newspaper_templates/showBlockView.pt"
+     permission="zope2.View"
+  />
+
+  <browser:page
+     for="*"
+     name="BlockDetail"
+     class="Products.Newspaper.Broadsheet.BlockView"
+     template="skins/newspaper_templates/showBlockDetail.pt"
+     permission="zope2.View"
+  />
+
+  <browser:page
+     for="*"
+     name="index_html"
+     class="Products.Newspaper.Broadsheet.BlockView"
+     template="skins/newspaper_templates/showBlockIndex.pt"
+     permission="zope2.View"
+  />
+
+  <browser:page
+     for="*"
+     name="HeadlineDiagnostic"
+     class="Products.Newspaper.Headline.HeadlineDiagnostic"
+     template="skins/newspaper_templates/showHeadlineDiagnostic.pt"
+     permission="zope2.View"
+  />
+  
+  <browser:page
+     for="*"
+     name="HeadlineView"
+     class="Products.Newspaper.Headline.HeadlineView"
+     template="skins/newspaper_templates/showHeadlineView.pt"
+     permission="zope2.View"
+  />
+
+  <browser:page
+     for="*"
+     name="ContainerDiagnostics"
+     class="Products.Newspaper.Container.ContainerDiagnostics"
+     template="skins/newspaper_templates/showContainerView.pt"
+     permission="zope2.View"
+  />
+
+  <browser:page
+     for="*"
+     name="container"
+     class="Products.Newspaper.Container.ContainerView"
+     template="skins/newspaper_templates/showContainerView.pt"
+     permission="zope2.View"
+  />
+
+  <browser:page
+     for="*"
+     name="fullview"
+     class="Products.Newspaper.Container.FullContainerView"
+     template="skins/newspaper_templates/showFullContainerView.pt"
+     permission="zope2.View"
+  />
+
+  <browser:page
+     for="*"
+     name="Products.Newspaper.interfaces.IIssue"
+     class="Products.Newspaper.Issue.IssueView"
+     template="skins/newspaper_templates/showIssueView.pt"
+     permission="zope2.View"
+  />
+
+  <browser:page
+     for="*"
+     name="issue_html"
+     class="Products.Newspaper.Issue.IssueView"
+     template="skins/newspaper_templates/showIssueIndex.pt"
+     permission="zope2.View"
+  />
+
+  <browser:page
+     for="*"
+     name="library_html"
+     class="Products.Newspaper.Library.LibraryView"
+     template="skins/newspaper_templates/showLibraryIndex.pt"
+     permission="zope2.View"
+  />
+
+  <browser:page
+     for="Products.Newspaper.interfaces.IIssue"
+     name="json"
+     class="Products.Newspaper.Issue.IssueJSON"
+     permission="zope2.View"
+  />
+
+  <browser:page
+     for="Products.Newspaper.interfaces.ILibrary"
+     name="json"
+     class="Products.Newspaper.Library.LibraryJSON"
+     permission="zope2.View"
+  />
+
+  <browser:page
+     for="*"
+     name="Products.Newspaper.interfaces.ILibrary"
+     class="Products.Newspaper.Library.LibraryView"
+     template="skins/newspaper_templates/showLibraryView.pt"
+     permission="zope2.View"
+  />
+
+  <browser:page
+     for="Products.Newspaper.interfaces.IBroadsheet"
+     name="json"
+     class="Products.Newspaper.Broadsheet.BroadsheetJSON"
+     permission="zope2.View"
+  />
+
+  <browser:page
+     for="Products.Newspaper.interfaces.IContainer"
+     name="json"
+     class="Products.Newspaper.Container.ContainerJSON"
+     permission="zope2.View"
+  />
+
+  <browser:page
+     for="Products.Newspaper.interfaces.IBlock"
+     name="json"
+     class="Products.Newspaper.Block.BlockJSON"
+     permission="zope2.View"
+  />
+
+  <browser:page
+     for="Products.Newspaper.interfaces.IHeadline"
+     name="json"
+     class="Products.Newspaper.Headline.HeadlineJSON"
+     permission="zope2.View"
+  />
+
+  <browser:page
+     for="Products.Newspaper.interfaces.IRichColumn"
+     name="json"
+     class="Products.Newspaper.RichColumn.RichColumnJSON"
+     permission="zope2.View"
+  />
+
+  <browser:page
+     for="Products.Newspaper.interfaces.ITextColumn"
+     name="json"
+     class="Products.Newspaper.TextColumn.TextColumnJSON"
+     permission="zope2.View"
+  />
+
+  <browser:page
+     for="Products.Newspaper.interfaces.IPix"
+     name="json"
+     class="Products.Newspaper.Pix.PixJSON"
+     permission="zope2.View"
+  />
+
+  <browser:page
+     for="*"
+     name="snapshot"
+     class="Products.Newspaper.Block.SnapshotView"
+     template="skins/newspaper_templates/snapBlock.pt"
+     permission="zope2.View"
+  />
+  
+  
+<!-- ##code-section BROWSER #fill in your manual code here -->
+<!-- ##/code-section BROWSER -->
+
+</configure>

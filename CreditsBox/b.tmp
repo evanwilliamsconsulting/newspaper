@@ -1,0 +1,30 @@
+    security.declarePublic(permissions.View,'web')
+    def web(self):
+	"""
+	Return Web Content
+        """
+	items = self.listFolderContents(contentFilter={"portal_type":"Advertizement"})
+	theDiv = ""
+	theDiv2 = ""
+	for ad in items:
+	    theImage = ad.getId()
+	    theDiv2 = theImage
+	    theDiv = "<div id='"
+            theDiv += theImage
+            theDiv += "' class='pix' style='margin-left:30px;position:relative;top:"
+	    theDiv += str(0)
+	    theDiv += "px;left:"
+	    theDiv += str(0)
+	    theDiv += "px;'"
+            #theDiv += "style='border-color:blue;border-width:2px;border-style:solid;top:"
+            left = 0
+            width = ad.getWidth()
+            height = ad.getHeight()
+            theDiv += ">"
+	    relativeUrl = ad.absolute_url(relative=1)
+	    #relativeUrl = relativeUrl[3:]
+	    fullUrl = "http://www.nhpress.net/" + relativeUrl
+	    theTag = "<img width='"+str(ad.getWidth())+"' height='"+str(ad.getHeight())+"' src='"+fullUrl+"/imagecopy/'/>"
+	    theDiv += theTag
+	    theDiv += "</div>"
+	return theDiv

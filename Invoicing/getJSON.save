@@ -1,0 +1,18 @@
+    def getJSON(self):
+	    """
+	    Test
+   	    """
+	    json_item = {}
+	    title = self.getId()
+	    json_item['Pix']=title
+	    attributes={}
+            attributes['caption']=self.getCaption()
+            attributes['credit']=self.getCredit()
+            attributes['pixclass']=self.getPixclass()
+	    attributes['width']=self.getWidth()
+	    attributes['height']=self.getHeight()
+	    pixpath = self.absolute_url() + '/getImage'
+	    attributes['pixpath']=pixpath
+	    json_item['attributes']=attributes
+	    json_item['elements']=super(Pix,self).getJSON()
+	    return json_item 

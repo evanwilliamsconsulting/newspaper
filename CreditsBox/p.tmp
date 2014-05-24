@@ -1,0 +1,6 @@
+    def getSnapshot(self,width,height):
+	    """
+	    Snapshot
+	    """
+ 	    tag = self.getField('picture').tag(self,height=height,width=width)
+	    return tag

@@ -1,0 +1,38 @@
+<div id="carousel"
+     tal:define="context_state context/@@plone_context_state;
+                 folder python:(context_state.is_structural_folder() and not context_state.is_default_page()) and context or context_state.parent();
+                 banners python:[o.getObject() for o in here.portal_catalog(portal_type='Carousel Banner', path='/'.join(folder.getPhysicalPath()) + '/carousel', sort_on='getObjPositionInParent')];"
+     tal:condition="python:banners and context_state.is_view_template()">
+
+    <div id="carousel-banners"
+        tal:define="size python:banners[0].getSize();
+                    height python:size[1];
+                    width python:size[0]">
+      <tal:image_loop repeat="banner banners">
+        <a tal:attributes="href banner/getRemoteUrl;
+                           id string:carousel-banner-${repeat/banner/index};
+                           class python:repeat['banner'].start and 'carousel-banner selected' or 'carousel-banner';
+                           style python:repeat['banner'].start and 'display: block' or 'display: none';
+                           title banner/Title;">
+            <img tal:replace="structure python:banner.tag()"/>
+        </a>
+      </tal:image_loop>
+    </div>
+    <div id="carousel-over"></div>
+    <div id="carousel-buttons">
+
+        <a tal:repeat="banner banners"
+           tal:attributes="class python:repeat['banner'].start and 'carousel-button selected' or 'carousel-button';
+                           href banner/getRemoteUrl;
+                           id string:carousel-button-${repeat/banner/index};
+                           onmouseover string:jq('.carousel-banner:not(#carousel-banner-${repeat/banner/index})').fadeOut(300);;jq('#carousel-banner-${repeat/banner/index}').fadeIn(300);;jq('.carousel-button.selected').removeClass('selected');;jq(this).addClass('selected');;return false;;">
+            <span class="carousel-title"
+                 tal:content="banner/Title"/>
+            <span class="carousel-description"
+                 tal:content="banner/Description"/>
+        </a>
+
+    </div>
+    
+    <div style="clear:both;"></div>
+</div>

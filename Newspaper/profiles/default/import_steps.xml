@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<import-steps>
+
+ 
+
+
+ <import-step 
+    id="Newspaper-Update-RoleMappings" 
+    handler="Products.Newspaper.setuphandlers.updateRoleMappings"
+    title="Update Workflow role mappings for Newspaper"
+    version="2011-07-07T13:14:14.239450">
+   <dependency step="Newspaper-QI-dependencies"/>
+   updates the workflow role mappings for Newspaper
+ </import-step>
+
+ <import-step 
+    id="Newspaper-postInstall" 
+    handler="Products.Newspaper.setuphandlers.postInstall"
+    title="manual coded post-install for Newspaper"
+    version="2011-07-07T13:14:14.239450">
+   <dependency step="Newspaper-QI-dependencies"/>
+   manual coded post-install for Newspaper
+ </import-step>
+
+<!-- ##code-section ADDITIONALSTEPS -->
+<!-- ##/code-section ADDITIONALSTEPS -->
+
+</import-steps>
+ 

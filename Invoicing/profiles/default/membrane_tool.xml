@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<object name="membrane_tool" meta_type="MembraneTool">
+ <membrane-type name="Contact">
+  <active-workflow-state name="private"/>
+  <active-workflow-state name="public"/>
+  <active-workflow-state name="active"/>
+ </membrane-type>
+
+<!-- ##code-section INDEXMAP -->
+<!-- ##/code-section INDEXMAP -->
+
+</object>

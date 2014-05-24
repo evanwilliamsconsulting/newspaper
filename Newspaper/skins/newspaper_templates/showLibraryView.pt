@@ -1,0 +1,9 @@
+<metal:block  metal:use-macro="here/library_html/macros/master">
+<metal:main fill-slot="content">
+      <tal:main-macro metal:define-macro="content">
+	<div tal:define="firstissue here/firstissue">
+            <div tal:content="structure firstissue/showIssueDetail">First Issue</div>
+	</div>
+      </tal:main-macro>
+</metal:main>
+</metal:block>

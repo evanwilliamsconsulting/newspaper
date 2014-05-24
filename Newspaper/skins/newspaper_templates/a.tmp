@@ -1,0 +1,2 @@
+<!--div tal:replace="structure container/web">the container</div-->
+<div tal:replace="structure container/snapshot">the container</div>

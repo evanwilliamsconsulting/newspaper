@@ -1,0 +1,9 @@
+ <action type="JSON"
+	 title="JSON"
+	 action_id="json"
+	 category="object"
+	 condition_expr="not:object/@@plone_lock_info/is_locked_for_current_user"
+	 url_expr="string:${object_url}/json"
+	 visible="True">
+	 <permission value="View"/>
+ </action>

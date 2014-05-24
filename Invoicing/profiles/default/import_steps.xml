@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<import-steps>
+
+ 
+ <import-step 
+    id="Invoicing-Setup-Member-Types" 
+    handler="Products.Invoicing.setuphandlers.setupMemberTypes"
+    title="setup Remember(Membrane) types for Invoicing"
+    version="2012-02-03T01:23:25.847069">
+   <dependency step="Invoicing-QI-dependencies"/>
+   setup Remember(Membrane) types for Invoicing
+ </import-step>
+
+
+
+ <import-step 
+    id="Invoicing-Update-RoleMappings" 
+    handler="Products.Invoicing.setuphandlers.updateRoleMappings"
+    title="Update Workflow role mappings for Invoicing"
+    version="2012-02-03T01:23:25.847069">
+   <dependency step="Invoicing-QI-dependencies"/>
+   updates the workflow role mappings for Invoicing
+ </import-step>
+
+ <import-step 
+    id="Invoicing-postInstall" 
+    handler="Products.Invoicing.setuphandlers.postInstall"
+    title="manual coded post-install for Invoicing"
+    version="2012-02-03T01:23:25.847069">
+   <dependency step="Invoicing-QI-dependencies"/>
+   manual coded post-install for Invoicing
+ </import-step>
+
+<!-- ##code-section ADDITIONALSTEPS -->
+<!-- ##/code-section ADDITIONALSTEPS -->
+
+</import-steps>
+ 

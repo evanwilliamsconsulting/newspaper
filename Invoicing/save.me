@@ -1,0 +1,189 @@
+# -*- coding: utf-8 -*-
+#
+# File: Invoice.py
+#
+# Copyright (c) 2012 by unknown <unknown>
+# Generator: ArchGenXML Version 2.6
+#            http://plone.org/products/archgenxml
+#
+# GNU General Public License (GPL)
+#
+
+__author__ = """unknown <unknown>"""
+__docformat__ = 'plaintext'
+
+from reportlab.pdfgen import canvas
+from reportlab.lib.units import inch
+from AccessControl import ClassSecurityInfo
+from Products.Archetypes.atapi import *
+from Products.Archetypes.Widget import ReferenceWidget
+from zope.interface import implements
+import interfaces
+
+from reportlab.pdfgen import canvas
+from reportlab.lib import colors
+from reportlab.lib.units import inch
+from reportlab.lib.utils import ImageReader
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+
+import string 
+from cStringIO import StringIO
+
+from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
+
+from Products.Invoicing.config import *
+
+##code-section module-header #fill in your manual code here
+##/code-section module-header
+
+schema = Schema((
+
+    DateTimeField(
+        name='dateOfInvoice',
+        widget=DateTimeField._properties['widget'](
+            label='Dateofinvoice',
+            label_msgid='Invoicing_label_dateOfInvoice',
+            i18n_domain='Invoicing',
+        ),
+    ),
+    ReferenceField(
+        name='Company',
+	relationship='Company',
+        allowed_types=('Company'),
+        widget=ReferenceWidget(
+            label='Company',
+            label_msgid='Invoicing_label_Company',
+            i18n_domain='Invoicing',
+        ),
+    ),
+    ReferenceField(
+        name='PrimaryContact',
+	relationship='Contact',
+	allowed_types=('Contact'),
+        widget=ReferenceWidget(
+            label='Primarycontact',
+            label_msgid='Invoicing_label_PrimaryContact',
+            i18n_domain='Invoicing',
+        ),
+    ),
+    BooleanField(
+        name='sent',
+        widget=BooleanField._properties['widget'](
+            label='Sent',
+            label_msgid='Invoicing_label_sent',
+            i18n_domain='Invoicing',
+        ),
+    ),
+    FixedPointField(
+        name='billing',
+        widget=FixedPointField._properties['widget'](
+            label='Billing',
+            label_msgid='Invoicing_label_billing',
+            i18n_domain='Invoicing',
+        ),
+    ),
+    BooleanField(
+        name='paid',
+        widget=BooleanField._properties['widget'](
+            label='Paid',
+            label_msgid='Invoicing_label_paid',
+            i18n_domain='Invoicing',
+        ),
+    ),
+
+),
+)
+
+##code-section after-local-schema #fill in your manual code here
+##/code-section after-local-schema
+
+Invoice_schema = BaseFolderSchema.copy() + \
+    schema.copy()
+
+##code-section after-schema #fill in your manual code here
+##/code-section after-schema
+
+class Invoice(BaseFolder):
+    """
+    """
+    security = ClassSecurityInfo()
+
+    implements(interfaces.IInvoice)
+
+    meta_type = 'Invoice'
+    _at_rename_after_creation = True
+
+    schema = Invoice_schema
+
+    ##code-section class-header #fill in your manual code here
+    ##/code-section class-header
+
+    aliases = {
+        '(Default)'	:	PROJECTNAME.lower() + '_view',
+	'view'		:	PROJECTNAME.lower() + '_view',
+	'edit'		:	'base_edit',
+	'base'	        :       'base_view',
+	'form'		:	'form_view',
+        'pdfshow'	:	'pdf_view',
+        'test'		:	'test_view',
+	}
+
+    # Methods
+    def test(self,REQUEST):
+	return "ferf"
+
+    def pdfshow(self,REQUEST):
+	output = StringIO()
+
+	c = canvas.Canvas(output,pagesize=(792,1250),bottomup=0)
+	x=35
+	y=100
+	all = ""
+	result=self.renderMasthead(c,x,y)
+	#result=self.callPDFTemplate(aLine,c,x,y,request,parent)
+	c.save()
+
+	#pdfresult = open('tmp.pdf','r')
+        #result = pdfresult.read()
+	result = output.getvalue()
+	output.close()
+	#pdfresult.close()
+
+	#print self.__dict__
+
+	response = request.RESPONSE
+
+        response.setHeader('Content-type','application/pdf')
+        response.setHeader('Content-disposition','inline; filename="%s.pdf"' % 'tmp')
+
+	return result
+
+    def renderMasthead(self,c,x,y):
+            textobject = c.beginText()
+            textobject.setTextOrigin(x,y)
+            width = 600 
+            height = 75
+	    pdfmetrics.registerFont(TTFont('FilosBold','FilosBol.ttf'))
+	    pdfmetrics.registerFont(TTFont('FilosReg','FilosReg.ttf'))
+            textobject.setFont('FilosBold',80)
+	    textobject.textLine("New Holland Press")
+	    textobject.setTextOrigin(x,y+30)
+            textobject.setFont("FilosReg",16)
+            textobject.textLine("A Paper Of Discussion")
+            textobject.setTextOrigin(x,y-60)
+            textobject.textLine("www.newhollandpress.com")
+            textobject.setTextOrigin(x+500,y-60)
+            textobject.textLine("10 Cents")
+	    textobject.setTextOrigin(x+520,y+30)
+            textobject.textLine("Saturday, February 4, 2012")
+	    c.drawText(textobject)
+            y+=50
+	    return (x,y)
+
+registerType(Invoice, PROJECTNAME)
+# end of class Invoice
+
+##code-section module-footer #fill in your manual code here
+##/code-section module-footer
+

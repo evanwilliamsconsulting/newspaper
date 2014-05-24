@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<object>
+  <order manager="plone.portalheader" skinname="Idaherma Editions Theme">
+		<viewlet name="nhptheme_templates.nhpmasthead"/>
+  </order>
+  <order manager="nhptheme.abovecontentviews" skinname="NHPTHEME">
+        <viewlet name="nhptheme.topimage"/>
+  </order>
+  <order manager="plone.portaltop" skinname="Plone Default">
+    <viewlet name="plone.header" />
+  </order>
+  <order manager="plone.abovecontent" skinname="Plone Default">
+    <viewlet name="nhptheme_templates.path_bar" />
+  </order>
+  <order manager="plone.contentviews" skinname="Plone Default">
+    <viewlet name="plone.contentviews" />
+    <viewlet name="plone.contentactions" />
+  </order>
+  <order manager="plone.belowcontentbody" skinname="Plone Default">
+    <viewlet name="plone.belowcontentbody.relateditems" />
+    <viewlet name="plone.abovecontenttitle.documentactions" />
+  </order>
+  <order manager="plone.belowcontent" skinname="Plone Default">
+    <viewlet name="plone.belowcontenttitle.keywords" />
+    <viewlet name="plone.nextprevious" />
+    <viewlet name="plone.manage_portlets_fallback" />
+  </order>
+  <order manager="plone.portalfooter" skinname="Plone Default">
+    <viewlet name="plone.footer" />
+    <viewlet name="plone.colophon" />
+    <viewlet name="plone.site_actions" />
+  </order>
+</object>

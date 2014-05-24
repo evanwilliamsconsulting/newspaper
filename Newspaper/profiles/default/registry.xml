@@ -1,0 +1,5 @@
+<registry>
+
+    <records name="Settings" interface="Products.nhptheme.interfaces.ISettings"/>
+
+</registry>

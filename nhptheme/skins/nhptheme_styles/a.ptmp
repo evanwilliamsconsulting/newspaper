@@ -1,0 +1,5 @@
+body {
+    font: 100% Arial, FreeSans, sans-serif;
+    background: Black;
+    color: White;
+}

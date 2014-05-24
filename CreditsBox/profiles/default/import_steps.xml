@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<import-steps>
+
+ 
+
+
+ <import-step 
+    id="CreditsBox-Update-RoleMappings" 
+    handler="Products.CreditsBox.setuphandlers.updateRoleMappings"
+    title="Update Workflow role mappings for CreditsBox"
+    version="2012-02-04T07:57:47.273397">
+   <dependency step="CreditsBox-QI-dependencies"/>
+   updates the workflow role mappings for CreditsBox
+ </import-step>
+
+ <import-step 
+    id="CreditsBox-postInstall" 
+    handler="Products.CreditsBox.setuphandlers.postInstall"
+    title="manual coded post-install for CreditsBox"
+    version="2012-02-04T07:57:47.273397">
+   <dependency step="CreditsBox-QI-dependencies"/>
+   manual coded post-install for CreditsBox
+ </import-step>
+
+<!-- ##code-section ADDITIONALSTEPS -->
+<!-- ##/code-section ADDITIONALSTEPS -->
+
+</import-steps>
+ 

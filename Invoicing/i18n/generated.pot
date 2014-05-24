@@ -1,0 +1,145 @@
+# archgenxml generated POT File
+# unknown <unknown>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: Invoicing\n"
+"POT-Creation-Date: Fri Feb  3 01:23:23 2012\n"
+"PO-Revision-Date: Fri Feb  3 01:23:23 2012\n"
+"Last-Translator: unknown <unknown>\n"
+"Language-Team: unknown <unknown>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: latin1 utf-8\n"
+"Domain: Invoicing\n"
+
+#. Default: "Adcopy"
+#: Advertizement.py
+msgid "Invoicing_label_AdCopy"
+msgstr ""
+
+#. Default: "Address1"
+#: Company.py
+msgid "Invoicing_label_Address1"
+msgstr ""
+
+#. Default: "Address2"
+#: Company.py
+msgid "Invoicing_label_Address2"
+msgstr ""
+
+#. Default: "City"
+#: Company.py
+msgid "Invoicing_label_City"
+msgstr ""
+
+#. Default: "Company"
+#: Invoice.py
+msgid "Invoicing_label_Company"
+msgstr ""
+
+#. Default: "Fax"
+#: Company.py
+msgid "Invoicing_label_Fax"
+msgstr ""
+
+#. Default: "Firstname"
+#: Contact.py
+msgid "Invoicing_label_FirstName"
+msgstr ""
+
+#. Default: "Lastname"
+#: Contact.py
+msgid "Invoicing_label_LastName"
+msgstr ""
+
+#. Default: "Postalcode"
+#: Company.py
+msgid "Invoicing_label_PostalCode"
+msgstr ""
+
+#. Default: "Primarycontact"
+#: Invoice.py
+msgid "Invoicing_label_PrimaryContact"
+msgstr ""
+
+#. Default: "Rate"
+#: LineItems.py
+msgid "Invoicing_label_Rate"
+msgstr ""
+
+#. Default: "State"
+#: Company.py
+msgid "Invoicing_label_State"
+msgstr ""
+
+#. Default: "Telephone"
+#: Company.py
+#: Contact.py
+msgid "Invoicing_label_Telephone"
+msgstr ""
+
+#. Default: "Billing"
+#: Invoice.py
+msgid "Invoicing_label_billing"
+msgstr ""
+
+#. Default: "Bonus"
+#: Advertizement.py
+msgid "Invoicing_label_bonus"
+msgstr ""
+
+#. Default: "Dateofad"
+#: Insertion.py
+msgid "Invoicing_label_dateOfAd"
+msgstr ""
+
+#. Default: "Dateofinvoice"
+#: Invoice.py
+msgid "Invoicing_label_dateOfInvoice"
+msgstr ""
+
+#. Default: "Discount"
+#: LineItems.py
+msgid "Invoicing_label_discount"
+msgstr ""
+
+#. Default: "Email"
+#: Company.py
+#: Contact.py
+msgid "Invoicing_label_email"
+msgstr ""
+
+#. Default: "Notyetrun"
+#: Insertion.py
+msgid "Invoicing_label_notYetRun"
+msgstr ""
+
+#. Default: "Numberofinsertions"
+#: Advertizement.py
+msgid "Invoicing_label_numberOfInsertions"
+msgstr ""
+
+#. Default: "Page"
+#: Insertion.py
+msgid "Invoicing_label_page"
+msgstr ""
+
+#. Default: "Paid"
+#: Invoice.py
+msgid "Invoicing_label_paid"
+msgstr ""
+
+#. Default: "Sent"
+#: Invoice.py
+msgid "Invoicing_label_sent"
+msgstr ""
+
+#. Default: "Website"
+#: Company.py
+msgid "Invoicing_label_website"
+msgstr ""
+

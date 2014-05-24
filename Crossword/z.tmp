@@ -1,0 +1,16 @@
+    IntegerField(
+        name='top',
+        widget=IntegerField._properties['widget'](
+            label='Top',
+            label_msgid='YouCanBox_label_top',
+            i18n_domain='YouCanBox',
+        ),
+    ),
+    IntegerField(
+        name='left',
+        widget=IntegerField._properties['widget'](
+            label='Left',
+            label_msgid='YouCanBox_label_left',
+            i18n_domain='YouCanBox',
+        ),
+    ),

@@ -1,0 +1,29 @@
+<metal:banners use-macro="context/@@banner-base/macros/banners">
+    <metal:banner fill-slot="banner_body">
+        <a tal:condition="python:'image' in elements"
+            tal:attributes="href banner/getRemoteUrl;
+                title banner/Title;"
+            class="carousel-image">
+            <img tal:replace="structure python:banner.tag()"/>
+        </a>
+        <div id="carousel-over"></div>
+        <div tal:define="text banner/getText|nothing;" 
+            tal:condition="python:'title' in elements or ('text' in elements and text)"
+            class="carousel-text">
+            <a tal:condition="python:'title' in elements"
+                tal:attributes="href banner/getRemoteUrl;"
+                tal:content="banner/Title"
+                class="carousel-title">
+                Banner title
+            </a>
+            <div tal:condition="python:text and 'text' in elements"
+                tal:content="structure text"
+                class="carousel-body">
+                Body text
+            </div>
+        </div>
+        <!--a tal:attributes="href banner/getRemoteUrl;"
+            class="carousel-structural-link">
+        </a-->
+    </metal:banner>
+</metal:banners>

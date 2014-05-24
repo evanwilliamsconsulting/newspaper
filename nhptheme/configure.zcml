@@ -1,0 +1,38 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:cmf="http://namespaces.zope.org/cmf"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="plone">
+
+
+  <include package=".browser" />
+
+
+
+  <five:registerPackage package="." />
+
+  <genericsetup:registerProfile
+      name="default"
+      title="New Holland Press Theme"
+      directory="profiles/default"
+      description='New Holland Press is a modern, minimalist, grid-based theme for Plone 4.'
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
+
+
+    <include package="plone.app.portlets"/>
+
+    <!-- make sure that plone.app.registry is loaded -->
+    <include package="plone.app.registry"/>
+
+
+  <cmf:registerDirectory name="nhptheme_images"/>
+  <cmf:registerDirectory name="nhptheme_styles"/>
+  <cmf:registerDirectory name="nhptheme_templates"/>
+  <cmf:registerDirectory name="nhptheme_javascripts"/>
+  <cmf:registerDirectory name="nhptheme_kss"/>
+
+</configure>

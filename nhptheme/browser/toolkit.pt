@@ -1,0 +1,11 @@
+<div id='toolkit'>
+	<ul id='testBar'>
+		<li id='toggleContainer'>Containers</li>
+		<li id='toggleColumn'>Columns</li>
+		<li id='togglePix'>Pix</li>
+		<li id='toggleHeadline'>Headlines</li>
+		<li id='toggleOutline'>Outline</li>
+		<li id='toggleName'>Names</li>
+		<li id='toggleCoordinate'>Coordinates</li>
+	</ul>
+</div>
